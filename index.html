@@ -11,13 +11,13 @@
 
 <!-- Below script gets the call data, finds the caller phone number (originator) and updates the Iframe url with the new url to fonecta with search query string.-->
 <script>
-alert("Test1");
+			alert("Test1");
 			var _onMessage = function(oEvent) {
 				if (oEvent.data.type === "response" && oEvent.data.payload.result !== "error") {
 					var data = oEvent.data.payload.value;
 					if (data.channel_type === "phone" && data.originator){
 						alert(data.originator);
-						window.open('https://www.fonecta.fi/haku/' + data.originator);
+						window.open("https://www.fonecta.fi/haku/", "newWindow", "left=100,top=100,width=600,height=800");
 						document.getElementById("frame").setAttribute("src", "https://www.fonecta.fi/haku/" + data.originator)
 					}
 				}
