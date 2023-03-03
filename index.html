@@ -17,7 +17,7 @@ alert("data.originator");
 					var data = oEvent.data.payload.value;
 					if (data.channel_type === "phone" && data.originator){
 						alert(data.originator);
-				//		document.getElementById("frame").setAttribute("src", "https://www.fonecta.fi/haku/" + data.originator)
+						document.getElementById("frame").setAttribute("src", "https://www.fonecta.fi/haku/" + data.originator)
 					}
 				}
 			}
