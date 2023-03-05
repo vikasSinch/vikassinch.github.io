@@ -33,7 +33,7 @@
 			}
 
 			window.addEventListener("message", _onMessage);
-			document.getElementById("cp").postMessage({type: "init", payload: false, id: "fn-1"}, "*");
+			document.getElementById("cp").contentWindow.postMessage({type: "init", payload: false, id: "fn-1"}, "*");
 
 </script>
 
