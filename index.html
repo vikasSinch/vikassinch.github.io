@@ -21,15 +21,16 @@
 					var data = oEvent.data.payload.value;
 					if (data.channel_type === "phone" && data.originator){
 						oInteraction = data;
+						alert(oInteraction.originator);
 					}
 					
 					if (oEvent.data.id === "fn-2") {
 						oUser = oEvent.data.payload.value;
+						alert(oUser.alias);
 					}
 
 					if (oInteraction && oUser){
-						alert(oInteraction.originator);
-						alert(oUser.alias);
+						alert("User " + oUser.alias + " Originator " + oInteraction.originator);
 					}
 				}
 			}
