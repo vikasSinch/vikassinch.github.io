@@ -5,38 +5,28 @@
                 <title>3rd Party extension testing</title>
 </head>
 <body style="margin: 0;width:100%;height: 100%">
-<!-- Below Iframe is loaded inside the extension area, that loads the webpage from www.fonecta.fi -->
-<!--iframe id="frame" style="border: 0;width: 100%;height: 100%" src="https://www.fonecta.fi"></iframe--!>
 
-
-<!-- Below script gets the call data, finds the caller phone number (originator) and updates the Iframe url with the new url to fonecta with search query string.-->
 <script>
-			//alert("Test3");
+
 			var _onMessage = function(oEvent) {
 				var oUser;
 				var oInteraction;
 			
+
 				if (oEvent.data.type === "response" && oEvent.data.payload.value) {
-
 					window.parent.postMessage({type: "action", payload: {command:"detail",value:"user"}, id: "fn-2"}, "*");
-
 				}
 			
 				if (oEvent.data.type === "response" && oEvent.data.payload.result !== "error") {
 					var data = oEvent.data.payload.value;
 					if (data.channel_type === "phone" && data.originator){
 						oInteraction = data;
-						alert(data.originator);
-						//window.open("https://www.fonecta.fi/haku/" + data.originator, "newWindow", "left=100,top=100,width=600,height=800");
-						//document.getElementById("frame").setAttribute("src", "https://www.fonecta.fi/haku/" + data.originator)
-						//document.getElementById("frame").src = "https://www.fonecta.fi/haku/" + data.originator;
 					}
 					
 					if (oEvent.data.id === "fn-2") {
-						
 						oUser = oEvent.data.payload.value;
-						
 					}
+
 					if (oInteraction && oUser){
 						alert(oInteraction.originator);
 						alert(oUser.alias);
