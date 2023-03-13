@@ -7,12 +7,11 @@
 <body style="margin: 0;width:100%;height: 100%">
 
 <script>
-
-			var _onMessage = function(oEvent) {
-				var oUser;
-				var oInteraction;
+			var oUser;
+			var oInteraction;
 			
-
+			var _onMessage = function(oEvent) {
+			
 				if (oEvent.data.type === "response" && oEvent.data.payload.value) {
 					window.parent.postMessage({type: "action", payload: {command:"detail",value:"user"}, id: "fn-2"}, "*");
 				}
@@ -30,7 +29,7 @@
 					}
 
 					if (oInteraction && oUser){
-						alert("User " + oUser.alias + " Originator " + oInteraction.originator);
+						alert("User: " + oUser.alias + " Originator: " + oInteraction.originator);
 					}
 				}
 			}
