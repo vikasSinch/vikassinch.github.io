@@ -11,9 +11,9 @@
 			var oInteraction;
 			
 			var _onMessage = function(oEvent) {
-				oInteraction.originator (oEvent.data.type);
+				console.log(oEvent.data.type);
 				
-				if (oEvent.data.type === "init" && oEvent.data.payload.value) {
+				if (oEvent.data.type === "init" && oEvent.data.payload.value && oEvent.data.payload.value.length === 0) {
 					window.parent.postMessage({type: "action", payload: {command:"detail",value:"user"}, id: "fn-2"}, "*");
 				}
 			
