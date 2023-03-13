@@ -13,6 +13,8 @@
 <script>
 			//alert("Test3");
 			var _onMessage = function(oEvent) {
+				var oUser;
+				var oInteraction;
 			
 				if (oEvent.data.type === "response" && oEvent.data.payload.value) {
 
@@ -23,6 +25,7 @@
 				if (oEvent.data.type === "response" && oEvent.data.payload.result !== "error") {
 					var data = oEvent.data.payload.value;
 					if (data.channel_type === "phone" && data.originator){
+						oInteraction = data;
 						alert(data.originator);
 						//window.open("https://www.fonecta.fi/haku/" + data.originator, "newWindow", "left=100,top=100,width=600,height=800");
 						//document.getElementById("frame").setAttribute("src", "https://www.fonecta.fi/haku/" + data.originator)
@@ -31,8 +34,11 @@
 					
 					if (oEvent.data.id === "fn-2") {
 						
-						alert("working")
+						oUser = data;
 						
+					}
+					if (oInteraction && oUser){
+						alert(oInteraction.originator);
 					}
 				}
 			}
