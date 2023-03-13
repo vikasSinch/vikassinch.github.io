@@ -18,7 +18,7 @@
 				
 					if (oEvent.data.type === "init" && oEvent.data.payload.value.length === 0) {
 
-						window.parent.postMessage({type: "action", payload: {command:"detail",value:"user"}, id: "fn-2"}, "*");
+					//	window.parent.postMessage({type: "action", payload: {command:"detail",value:"user"}, id: "fn-2"}, "*");
 
 					}
 					if (oEvent.data.type === "response" && oEvent.data.payload.result !== "error") {
@@ -36,7 +36,7 @@
 					}
 					
 					if (Interaction && User){
-						
+						alert("working")
 					}
                 }
 
