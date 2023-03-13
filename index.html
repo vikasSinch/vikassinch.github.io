@@ -34,11 +34,12 @@
 					
 					if (oEvent.data.id === "fn-2") {
 						
-						oUser = data;
+						oUser = oEvent.data.payload.value;
 						
 					}
 					if (oInteraction && oUser){
 						alert(oInteraction.originator);
+						alert(oUser.alias);
 					}
 				}
 			}
