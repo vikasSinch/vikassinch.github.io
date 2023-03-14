@@ -12,23 +12,22 @@
 			
 			var _onMessage = function(oEvent) {
 				console.log("EventType: " + oEvent.data.type);
-				
-				/*if (oEvent.data.type === "init" && oEvent.data.payload.value && oEvent.data.payload.value.length === 0) {
-					
-				}*/
-			
+
 				if (oEvent.data.type === "response" && oEvent.data.payload.result !== "error") {
 					var data = oEvent.data.payload.value;
 					
 					if (oEvent.data.id === "fn-1" && data.channel_type === "phone" && data.originator){
+						// Get the interaction details
 						oInteraction = data;
+						//Register the event to get user details.
 						window.parent.postMessage({type: "action", payload: {command:"detail",value:"user"}, id: "fn-2"}, "*");
-						alert(oInteraction.originator);
+						//alert(oInteraction.originator);
 					}
 					
 					if (oEvent.data.id === "fn-2") {
+						// get the user details
 						oUser = data;
-						alert(oUser.alias);
+						//alert(oUser.alias);
 					}
 
 					if (oInteraction && oUser){
