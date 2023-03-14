@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" style="width:100%;height: 100%;">
 <head>
@@ -7,37 +8,60 @@
 <body style="margin: 0;width:100%;height: 100%">
 
 <script>
-			var oUser;
-			var oInteraction;
+			// Variables:
+			var sInitRequest = "initRequest";
+			var sUserDetailRequest = "userDetails";
+			var oUser = null;
+			var oInteraction = null;
+			var sExtensionName = "TestExtension";
 			
+			var _log = function (sMsg) {
+				console.log(sExtensionName + ":: " + sMsg);
+			};
+			
+			// Window message handler:
 			var _onMessage = function(oEvent) {
-				console.log("EventType: " + oEvent.data.type);
-				
-				if (oEvent.data.type === "init" && oEvent.data.payload.value && oEvent.data.payload.value.length === 0) {
-					window.parent.postMessage({type: "action", payload: {command:"detail",value:"user"}, id: "fn-2"}, "*");
-				}
 			
-				if (oEvent.data.type === "response" && oEvent.data.payload.result !== "error") {
-					var data = oEvent.data.payload.value;
-					
-					if (oEvent.data.id === "fn-1" && data.channel_type === "phone" && data.originator){
-						oInteraction = data;
-						alert(oInteraction.originator);
-					}
-					
-					if (oEvent.data.id === "fn-2") {
-						oUser = data;
-						alert(oUser.alias);
-					}
-
-					if (oInteraction && oUser){
-						alert("User: " + oUser.alias + ", Originator: " + oInteraction.originator);
-					}
+				switch(oEvent.data.type) {
+					case "response":
+						// CP responded to init command. For Extension Area, this message contains interaction:
+						if (oEvent.data.id === sInitRequest) {
+							
+							// Cache interaction:
+							oInteraction = oEvent.data.payload.value; // Cache interaction.
+							// Request user details:
+							window.parent.postMessage({type: "action", payload: {command:"detail",value:"user"}, id: sUserDetailRequest}, "*");							
+						}
+						
+						// CP responded to user details request:
+						else if (oEvent.data.id === sUserDetailRequest) {
+							oUser = oEvent.data.payload.value; // Cache user.
+						}
+						
+						// Once initial interaction data + current user data are in cache, react:
+						if (oInteraction && oUser) {
+							var sMessage = "User ["+oUser.username+"] is handling interaction ["+oInteraction.id+"]";
+							_log(sMessage);
+							alert(sMessage);
+							// Here we would now do something, as we have interaction and user details.
+						}
+						break;
+						
+						
+					case "state": // CP is sending a state update for an interaction.
+						_log("Interaction ["+oInteraction.id+"] updated, attribute ["+oEvent.data.payload.attribute+"] changed");
+						oInteraction = oEvent.data.payload.interaction; // Store updated interaction in cache
+						// Here we could react if something interesting changes within interaction model, such as new chat message arrived, or phone connected.					
+						break;
+			
 				}
 			}
 
+			// Listen for messages from CP:
 			window.addEventListener("message", _onMessage);
-			window.parent.postMessage({type: "init", payload: false, id: "fn-1"}, "*");
+			
+			// Send initialization command:
+			window.parent.postMessage({type: "init", payload: false, id: sInitRequest}, "*");
 			
 </script>
 
