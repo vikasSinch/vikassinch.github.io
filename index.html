@@ -40,7 +40,7 @@
 						
 						// Once initial interaction data + current user data are in cache, react:
 						if (oInteraction && oUser) {
-							var sMessage = "User ["+oUser.username+"] is handling interaction ["+oInteraction.id+"]";
+							var sMessage = "User ["+oUser.username+"] is handling interaction ["+oInteraction.originator+"]";
 							_log(sMessage);
 							alert(sMessage);
 							// Here we would now do something, as we have interaction and user details.
