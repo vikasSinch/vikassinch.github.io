@@ -52,12 +52,12 @@ p {
 
 		document.getElementById('error').innerHTML = "";
 	}
-
+action=searchnlist&search=0403573592&profile=&elements=3&qs=1.3
 	function openEmarsysPopup(){
 		var phonenumber = document.getElementById("searchNumber").value;
 		
 		if (session_id !== null && emarsysHost!== null){
-			searchUrl = "https://" + emarsysHost + "/bootstrap.php?session_id="+ session_id + "&mobile=" + phonenumber;
+			searchUrl = "https://" + emarsysHost + "/userprofiles.php?session_id="+ session_id + "&action=searchnlist&profile=&elements=3&qs=1.3&search=" + phonenumber ;
 		//	alert (searchUrl);
 			window.open(searchUrl, "_new", "left=100,top=100,width=600,height=800", "");
 		}
