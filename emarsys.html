@@ -57,9 +57,9 @@ p {
 		var phonenumber = document.getElementById("searchNumber").value;
 		
 		if (session_id !== null && emarsysHost!== null){
-			searchUrl = emarsysHost + "/bootstrap.php?session_id="+ session_id + "&mobile=" + phonenumber;
+			searchUrl = "https://" + emarsysHost + "/bootstrap.php?session_id="+ session_id + "&mobile=" + phonenumber;
 		//	alert (searchUrl);
-			window.open(searchUrl, "left=100,top=100,width=600,height=800");
+			window.open(searchUrl, "left=100,top=100,width=600,height=800", "");
 		}
 	}
 	
@@ -90,7 +90,7 @@ Enable Emarsys page auto popup: <input type="checkbox" id="autopopup" name="auto
 
 <div id="error"></div>
 
-<button onclick="mockEmarsysPopup()" >Mock Emarsys Popout</button>
+<button onclick="mockEmarsysPopup()" > Mock Emarsys Popout</button>
 
 <script>
 			
