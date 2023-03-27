@@ -1,0 +1,388 @@
+
+
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <base target="_blank">
+
+    <link rel="stylesheet" href="https://unpkg.com/fundamental-styles@0.6.0/dist/fundamental-styles.css"/>
+
+    <!-- cpc library code -->
+    <script>
+        /**
+         * Sinch Contact Center Communication Panel
+         * Registers a small API to window scope. Iframe messaging example. IE compatible.
+         * Uses cross-origin communication to send command messages between Communication Panel and this client and provides simplified API.
+         * @namespace cpc
+         */
+
+        (function(cpc, undefined) {
+
+            // Private variables
+
+            /**
+             * The hostname of ECF Web Server where Communication Panel is server from. Get it directly from window ancestors
+             * @type {string}
+             * @private
+             */
+            var _sOrigin = window.location.ancestorOrigins ? window.location.ancestorOrigins[0] : document.referrer;
+            /**
+             * Message counter
+             * @type {number}
+             * @private
+             */
+            var _iMsgId = 0;
+            /**
+             * Message callback map
+             * @type {object}
+             * @private
+             */
+            var _mMsg = {};
+
+            //Public Methods
+
+            /**
+             * Initiates the controller to start listening window messaging.
+             * Executed when script is processed.
+             */
+            cpc.init = function() {
+                window.addEventListener("message", _onMessage);
+                cpc.sendMessage("init", true, function(oMsg) {
+                    if (oMsg.result !== "error") {
+                        _triggerEvent("init");
+                    } else {
+                        window.removeEventListener("message", _onMessage);
+                        console.error(oMsg.reason);
+                    }
+                });
+            };
+
+            /**
+             * Stops listening to messaging events.
+             */
+            cpc.exit = function() {
+                cpc.sendMessage("exit", null, function(oMsg) {
+                    if (oMsg.result !== "error") {
+                        _triggerEvent("exit");
+                    } else {
+                        console.error(oMsg.reason);
+                    }
+                });
+            };
+
+            /**
+             * Sends a XDM message to the visitor host application iframe.
+             * @param {string} type Type of the interface message
+             * @param {object} [payload] Optional payload to be sent
+             * @param {function} [fnCallback] Optional callback to be executed on successful
+             * @private
+             */
+            cpc.sendMessage = function(type, payload, fnCallback) {
+                var iId = "cpc-" + _iMsgId++;
+                if (fnCallback) {
+                    _mMsg[iId] = fnCallback;
+                }
+                _sendMessage(type, payload, iId);
+            };
+
+            /**
+             * Sends a XDM message to the visitor host application iframe.
+             * Example of ES6 feature code.
+             * @param {string} type Type of the interface message
+             * @param {object} [payload] Optional payload to be sent
+             * @param {function} [fnCallback] Optional callback to be executed on successful
+             * @private
+             */
+            cpc.sendMessagePromise = (type, payload) => {
+                return new Promise((res, rej) => {
+                    const iId = "cpc-" + _iMsgId++;
+                    _mMsg[iId] = (msg) => {
+                        if (msg.result === "error") {
+                            rej();
+                        } else {
+                            res(msg);
+                        }
+                    };
+                    _sendMessage(type, payload, iId);
+                })
+            };
+
+            //Private Methods
+
+            /**
+             * Listens to XDM messages originating from the visitor host application iframe.
+             * @private
+             * @listens window#message
+             */
+            function _onMessage(oEvent) {
+                if (oEvent.source !== window.parent) {
+                    return;
+                }
+
+                var oData = oEvent.data || {};
+
+                _triggerEvent("message", oData);
+
+                switch (oData.type) {
+                    case "response":
+                        if (_mMsg.hasOwnProperty(oData.id)) {
+                            _mMsg[oData.id](oData.payload);
+							_getPhoneNumberFromCAD(oData.payload);
+                            delete _mMsg[oData.id];
+                        }
+                        break;
+                    case "status":
+                    case "state":
+                        _triggerEvent(oData.type, oData.payload);
+                        break;
+                    case "exit":
+                        window.removeEventListener("message", _onMessage);
+                        _triggerEvent(oData.type);
+                        break;
+                    default:
+                        return;
+                }
+            }
+
+			 /**
+             * Get the phone number from the CAD and set the text field.
+             * @private
+             */
+            function _getPhoneNumberFromCAD (payload){
+			
+				var data = payload.value;
+				var attachedData = data.attached_data;
+				
+				if (data.channel_type === "email") {
+						
+					// Find the object with k="PhoneNumber"
+					var phoneNumberObj = attachedData.values.KV.find(kv => kv.k === "PhoneNumber");
+					// Get the phone number
+					var phoneNumber = phoneNumberObj.v;
+					// set the i1 field value
+					document.getElementById("i1").value = phoneNumber;
+				}
+			}
+			
+			
+            /**
+             * Sends a XDM message to the visitor host application iframe.
+             * @private
+             */
+            function _sendMessage(sMessage, oData, iId) {
+                var oMsg = {type: sMessage, payload: oData, id: iId || "cpc-" + _iMsgId++};
+                _triggerEvent("sendmessage", oMsg);
+                window.parent.postMessage(oMsg, _sOrigin);
+            }
+
+            /**
+             * Send an event to parent site
+             * @private
+             */
+            function _triggerEvent(sType, oDetail) {
+                var oEvent;
+                // IE
+                var fnFallback = function() {
+                    oEvent = document.createEvent('CustomEvent');
+                    oEvent.initCustomEvent(sType, false, false, oDetail);
+                };
+                if (window.CustomEvent) {
+                    try {
+                        oEvent = new window.CustomEvent(sType, {
+                            bubbles: false,
+                            cancelable: false,
+                            detail: oDetail
+                        });
+                    } catch (oException) {
+                        fnFallback();
+                    }
+                } else {
+                    fnFallback();
+                }
+                document.dispatchEvent(oEvent);
+            }
+
+            // Load the controller
+            cpc.init();
+
+        }(window.cpc = window.cpc || {}));
+
+    </script>
+
+    <!-- end library code -->
+
+
+    <script>
+        /**
+         * Example UI code implementation
+        */
+        _bEnabled = true;
+        _bVisible = true;
+        _bExpanded = true;
+
+        // Event listeners
+
+        document.addEventListener("message", function(oMsg) {
+            addTr(oMsg.detail.id, oMsg.detail.type, JSON.stringify(oMsg.detail.payload), false);
+        });
+
+        document.addEventListener("sendmessage", function(oMsg) {
+            addTr(oMsg.detail.id, oMsg.detail.type, JSON.stringify(oMsg.detail.payload), true);
+        });
+
+        document.addEventListener("init", function(oMsg) {
+            showMsg("Extension initialized", "information");
+            document.getElementById("act-pw").className = "fd-button--positive sap-icon--log";
+        });
+
+        document.addEventListener("exit", function(oMsg) {
+            showMsg("Extension exited");
+            document.getElementById("act-pw").className = "fd-button--negative sap-icon--log";
+        });
+
+        document.addEventListener("state", function(oMsg) {
+            showMsg(oMsg.detail.attribute + ":" + oMsg.detail.value);
+        });
+
+        // UI Functions
+
+        function showMsg(sMsg, sLevel) {
+            var sClass = sLevel ? " fd-message-strip--" + sLevel : "";
+            var act = document.getElementById("act-item");
+            act.className = "fd-message-strip" + sClass;
+            act.childNodes[1].innerText = sMsg;
+        }
+
+        function addTr(sId, sType, sPayload, bDir) {
+            var tr = document.createElement("tr");
+            tr.className = "fd-table__row";
+            var td = document.createElement("th");
+            td.className = "fd-table__cell";
+            td.innerText = sId;
+            tr.appendChild(td);
+            td = td.cloneNode(true);
+            td.innerText = sType;
+            tr.appendChild(td);
+            td = td.cloneNode(true);
+            td.innerText = (sPayload || "").slice(0, 30);
+            td.setAttribute("title", sPayload);
+            tr.appendChild(td);
+            td = td.cloneNode(true);
+            td.innerHTML = bDir ? "<span class=\"sap-icon--arrow-top\"></span>" : "<span class=\"sap-icon--arrow-bottom\"></span>";
+            tr.appendChild(td);
+            document.getElementById("msg-table").appendChild(tr);
+            var container = document.getElementById("msg-table-c");
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // UI callbacks
+
+        function getDetails(sType) {
+            cpc.sendMessage("action", {command: "detail", value: sType}, function(oMsg) {
+                if (oMsg.value === "error") {
+                    showMsg("getDetails:" + sType + "\r\n" + oMsg.reason, "error");
+                } else {
+                    showMsg("getDetails:" + sType, "success");
+                }
+            });
+        }
+
+        function power() {
+            if (document.getElementById("act-pw").className.indexOf("negative") !== -1) {
+                cpc.init();
+            } else {
+                cpc.exit();
+            }
+        }
+
+        function toggleAction(sType, bValue) {
+            cpc.sendMessage("action", {command: sType, value: bValue}, function(oMsg) {
+                if (oMsg.value === "error") {
+                    showMsg("toggleAction:" + sType + "\r\n" + oMsg.reason, "error");
+                } else {
+                    showMsg("toggleAction:" + sType, "success");
+                    if (sType === "visible") {
+                        _bVisible = bValue;
+                    } else {
+                        _bEnabled = bValue;
+                    }
+                }
+            });
+        }
+
+        function createAction(sCommand, oPayload) {
+            cpc.sendMessage("action", {command: sCommand, value: oPayload}, function(oMsg) {
+                if (oMsg.value === "error") {
+                    showMsg("createAction:" + sCommand + "\r\n" + oMsg.reason, "error");
+                } else {
+                    showMsg("createAction:" + sCommand, "success");
+                }
+            });
+        }
+
+        function createOutbound(sType, oPayload, bDirect) {
+            oPayload.channel = sType;
+            oPayload.direct = bDirect;
+            createAction("outbound", oPayload);
+        }
+
+    </script>
+
+</head>
+
+<body style="margin: 0">
+<div style="display: flex; flex-direction: column;height: 100%">
+    <br/>
+    <div style="padding: 10px; margin-right:auto">
+        <div id="act-item" class="fd-message-strip" role="alert">
+            <p class="fd-message-strip__text" style="word-break: break-all">
+                Extension loading
+            </p>
+        </div>
+    </div>
+    <br/>
+    <div style="padding: 10px; line-height: 3">
+        <button id="act-pw" onclick="power()" class="fd-button--negative sap-icon--log"></button>
+        <button class="fd-button" onclick="getDetails('user')">User</button>
+        <button class="fd-button" onclick="getDetails('queue')">Queue</button>
+        <button class="fd-button" onclick="getDetails('queues')">Queues</button>
+        <button class="fd-button" onclick="getDetails('interaction')">Interaction</button>
+        <button class="fd-button" onclick="getDetails('transcript')">Transcript</button>
+        <button class="fd-button" onclick="getDetails('extension')">Extension</button>
+        <button class="fd-button" onclick="toggleAction('enabled', !_bEnabled)">Enabled</button>
+        <button class="fd-button" onclick="toggleAction('visible', !_bVisible)">Visible</button>
+        <button class="fd-button" onclick="toggleAction('expanded', !_bExpanded)">Expanded</button>
+        <input class="fd-input" type="text" id="i1"/>
+        <button class="fd-button" onclick="createOutbound('email', {to:[document.getElementById('i1').value]})">Email</button>
+        <button class="fd-button" onclick="createOutbound('email', {to:[document.getElementById('i1').value], subject:'hi', content:'<b>HELLO WORLD</b>'}, true)">EmailD</button>
+        <button class="fd-button" onclick="createOutbound('sms', {to:document.getElementById('i1').value, content:'<b>HELLO WORLD</b>'})">SMS</button>
+        <button class="fd-button" onclick="createOutbound('sms', {to:document.getElementById('i1').value, content:'<b>HELLO WORLD</b>'}, true)">SMSD</button>
+        <button class="fd-button" onclick="createOutbound('phone', {to:document.getElementById('i1').value})">Call</button>
+        <button class="fd-button" onclick="createAction('transfer', {to:document.getElementById('i1').value})">Transfer</button>
+        <button class="fd-button" onclick="createAction('consult', {to:document.getElementById('i1').value})">Consult</button>
+        <button class="fd-button" onclick="createAction('message', {content:document.getElementById('i1').value})">Message</button>
+        <button class="fd-button" onclick="createAction('interaction', {content:document.getElementById('i1').value})">InteractionState</button>
+    </div>
+    <br/>
+    <div id="msg-table-c" style="flex-grow: 1; overflow: auto">
+        <table class="fd-table">
+            <thead class="fd-table__header">
+            <tr class="fd-table__row">
+                <th class="fd-table__cell" scope="col">Id</th>
+                <th class="fd-table__cell" scope="col">Type</th>
+                <th class="fd-table__cell" scope="col">Payload</th>
+                <th class="fd-table__cell" scope="col">Direction</th>
+            </tr>
+            </thead>
+            <tbody id="msg-table" class="fd-table__body">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
