@@ -158,18 +158,20 @@
 				var attachedData = data.attached_data;
 				console.log("data.channel_type: " + data.channel_type );
 				if (data.channel_type === "user_defined") {
+					
+					if (attachedData.values && attachedData.values.KV) {
 				
-					var kvArray = attachedData.values.KV;
-					var phoneNumber = '';
+						var kvArray = attachedData.values.KV;
+						var phoneNumber = '';
 
-					for (let i = 0; i < kvArray.length; i++) {
-					  const kvObject = kvArray[i];
-					  if (kvObject.k === 'PhoneNumber') {
-						phoneNumber = kvObject.v;
-						break;
-					  }
+						for (let i = 0; i < kvArray.length; i++) {
+						  const kvObject = kvArray[i];
+						  if (kvObject.k === 'PhoneNumber') {
+							phoneNumber = kvObject.v;
+							break;
+						  }
+						}
 					}
-						
 					// set the i1 field value
 					document.getElementById("i1").value = phoneNumber;
 				}
