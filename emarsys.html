@@ -6,6 +6,7 @@
 <style>
 p {
   padding-left: 10px;
+  Arial,Helvetica,sans-serif;
 }
 </style>		
 
@@ -74,15 +75,15 @@ p {
 </head>
 <body style="margin: 0;width:100%;height: 100%;font-family: Arial,Helvetica,sans-serif;" onload="onLoad()">
 
-<p>Login to Emarsys tenant and copy the logged in URL below with a valid session_Id in it.<hr><p>
+<p>Login to Emarsys tenant and copy the logged in URL below with a valid session_Id in it.</p><hr><p>
 
-Emarsys Url: <input type="text" id="url" name="url" size="90"><p>
-Enable Emarsys page auto popup: <input type="checkbox" id="autopopup" name="autopopup">
+Emarsys Url: <br><input type="text" id="url" name="url" size="90"><p>
+Enable Emarsys search auto popup: <input type="checkbox" id="autopopup" name="autopopup">
 
-<p><button onclick="saveEmarsysUrl()" > Save </button><p>
-<hr>
-
-<p><input type="text" id="searchNumber" name="searchNumber" size="20"> <button onclick="openEmarsysPopup()"> Search in Emarsys </button><p><hr><p>
+<p><button onclick="saveEmarsysUrl()" > Save </button>
+<hr><p>
+Search in Emarsys manually:
+<p><input type="text" id="searchNumber" name="searchNumber" size="20"> <button onclick="openEmarsysPopup()"> Search </button><p><hr><p>
 
 <div id="error"></div>
 
