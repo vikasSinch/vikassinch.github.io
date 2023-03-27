@@ -156,7 +156,7 @@
 			
 				var data = payload.value;
 				var attachedData = data.attached_data;
-				
+				console.log("data.channel_type: " + data.channel_type );
 				if (data.channel_type === "custom") {
 				
 					var kvArray = attachedData.values.KV;
