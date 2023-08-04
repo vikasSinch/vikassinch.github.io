@@ -376,7 +376,7 @@
     const processedData = replaceFieldNames(dataToProcess, fieldsDataset);
 
     // Function to create HTML table from the processed data
-    function createTable(data) {
+    function createTable(data, fieldsDataset) {
       const table = document.getElementById("dataTable");
       const firstRecord = data[0];
 
@@ -408,8 +408,7 @@
     }
 
     // Create the HTML table
-    createTable(processedData);
+    createTable(processedData, fieldsDataset);
   </script>
 </body>
 </html>
-
