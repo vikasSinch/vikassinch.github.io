@@ -493,15 +493,12 @@
     }
   ]
 };
-    // Function to create HTML table row for a single record
-    function createTableRow(fieldName, value) {
+      // Function to create HTML table row for a single record
+    function createTableRow(fieldName, key, value) {
       const tr = document.createElement("tr");
       const tdFieldName = document.createElement("td");
-      tdFieldName.textContent = fieldName;
-      const tdValue = document.createElement("td");
-      tdValue.textContent = value;
+      tdFieldName.innerHTML = `${fieldName}<br><strong>${key}</strong><br>${value}`;
       tr.appendChild(tdFieldName);
-      tr.appendChild(tdValue);
       return tr;
     }
 
@@ -516,7 +513,7 @@
             const fieldInfo = fieldsDataset.data.find(field => field.id.toString() === key);
             const fieldName = fieldInfo ? fieldInfo.name : key;
             const value = record[key];
-            const row = createTableRow(fieldName, value);
+            const row = createTableRow(fieldName, key, value);
             table.appendChild(row);
           }
         });
