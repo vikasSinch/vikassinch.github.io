@@ -375,7 +375,7 @@
     // Call the function to replace field names
     const processedData = replaceFieldNames(dataToProcess, fieldsDataset);
 
- / Function to create HTML table from the processed data
+ // Function to create HTML table from the processed data
     function createTable(data, fieldsDataset) {
       const table = document.getElementById("dataTable");
       const keys = Object.keys(fieldsDataset.fields.reduce((obj, field) => {
