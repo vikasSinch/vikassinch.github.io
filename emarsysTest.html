@@ -493,53 +493,38 @@
     }
   ]
 };
+    // Function to create HTML table row for a single record
+    function createTableRow(fieldName, value) {
+      const tr = document.createElement("tr");
+      const tdFieldName = document.createElement("td");
+      tdFieldName.textContent = fieldName;
+      const tdValue = document.createElement("td");
+      tdValue.textContent = value;
+      tr.appendChild(tdFieldName);
+      tr.appendChild(tdValue);
+      return tr;
+    }
 
-  function replaceFieldNames(dataToProcess, fieldsDataset) {
-  // Extract the result data from dataToProcess
-  const resultData = dataToProcess.data.result;
-
-  // Create a mapping of the field IDs to their corresponding names
-  const fieldIdToNameMap = {};
-  fieldsDataset.data.forEach(field => {
-    fieldIdToNameMap[field.id] = field.name;
-  });
-
-  // Replace the field names in the resultData
-  const processedData = resultData.map(record => {
-    const processedRecord = {};
-    Object.keys(record).forEach(key => {
-      if (key !== "id" && key !== "uid") {
-        const fieldName = fieldIdToNameMap[parseInt(key)];
-        processedRecord[fieldName] = record[key];
-      }
-    });
-    return processedRecord;
-  });
-
-  return processedData;
-}
-
-    // Call the function to replace field names
-    const processedData = replaceFieldNames(dataToProcess, fieldsDataset);
-
-// Function to create HTML table from the processed data
-    function createTable(data, fieldsDataset) {
+    // Function to create HTML table from the processed data
+    function createTable(data) {
       const table = document.getElementById("dataTable");
 
-      fieldsDataset.data.forEach(field => {
-        const tr = document.createElement("tr");
-        const th = document.createElement("th");
-        const td = document.createElement("td");
-        th.textContent = field.name;
-        td.textContent = data[0][field.id];
-        tr.appendChild(th);
-        tr.appendChild(td);
-        table.appendChild(tr);
+      // Create table rows for each record in dataToProcess.results
+      data.forEach(record => {
+        Object.keys(record).forEach(key => {
+          if (key !== "id" && key !== "uid") {
+            const fieldInfo = fieldsDataset.data.find(field => field.id.toString() === key);
+            const fieldName = fieldInfo ? fieldInfo.name : key;
+            const value = record[key];
+            const row = createTableRow(fieldName, value);
+            table.appendChild(row);
+          }
+        });
       });
     }
 
-    // Create the HTML table
-    createTable(processedData, fieldsDataset);
+    // Create the HTML table using the dataToProcess.results
+    createTable(dataToProcess.data.result);
   </script>
 </body>
 </html>
