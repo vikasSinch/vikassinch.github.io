@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Data Table</h1>
+  <table id="dataTable"></table>
+
+  <script>
+    // The original dataset with field names to be replaced
+    const dataToProcess = {
+    "replyCode":0,
+    "replyText":"OK",
+    "data":{
+       "errors":[
+          
+       ],
+       "result":[
+          {
+             "id":"370791343",
+             "uid":"Y8eV006lMz",
+             "1":"Vikas",
+             "2":"Mittal",
+             "3":"vikas.mittal@sinch.com",
+             "4":"1975-01-09",
+             "5":"1",
+             "6":"2",
+             "7":"2",
+             "8":"5",
+             "9":"4",
+             "10":"Linnoitustie 4",
+             "11":"Espoo",
+             "12":"Uusimma",
+             "13":"02600",
+             "14":"60",
+             "15":null,
+             "16":null,
+             "17":"26",
+             "18":"Sinch",
+             "19":"4",
+             "20":"7",
+             "21":null,
+             "22":null,
+             "23":"7",
+             "24":null,
+             "25":"www.sinch.com",
+             "26":null,
+             "27":null,
+             "28":null,
+             "29":null,
+             "30":null,
+             "31":"1",
+             "32":null,
+             "33":"2",
+             "34":[
+                
+             ],
+             "35":"1",
+             "36":null,
+             "37":"+358403573593",
+             "38":"Partners Name",
+             "39":"1978-01-01",
+             "40":"2000-02-01",
+             "41":null,
+             "42":null,
+             "43":null,
+             "44":null,
+             "45":null,
+             "46":"1",
+             "47":"1",
+             "48":"2023-07-03"
+          }
+       ]
+    }
+ };
+
+    // The dataset containing the fields information
+    const fieldsDataset = {
+  "fields": [
+    {
+      "ID": 0,
+      "Field Name": "Interests",
+      "Type": "multi-choice"
+    },
+    {
+      "ID": 1,
+      "Field Name": "First Name",
+      "Type": "short-text"
+    },
+    {
+      "ID": 2,
+      "Field Name": "Last Name",
+      "Type": "short-text"
+    },
+    {
+      "ID": 3,
+      "Field Name": "E-Mail",
+      "Type": "long-text"
+    },
+    {
+      "ID": 4,
+      "Field Name": "Date of Birth",
+      "Type": "birthdate"
+    },
+    {
+      "ID": 5,
+      "Field Name": "Gender",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 6,
+      "Field Name": "Marital Status",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 7,
+      "Field Name": "Children",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 8,
+      "Field Name": "Education",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 9,
+      "Field Name": "Title",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 10,
+      "Field Name": "Address",
+      "Type": "long-text"
+    },
+    {
+      "ID": 11,
+      "Field Name": "City",
+      "Type": "short-text"
+    },
+    {
+      "ID": 12,
+      "Field Name": "State",
+      "Type": "short-text"
+    },
+    {
+      "ID": 13,
+      "Field Name": "ZIP Code",
+      "Type": "short-text"
+    },
+    {
+      "ID": 14,
+      "Field Name": "Country",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 15,
+      "Field Name": "Phone",
+      "Type": "short-text"
+    },
+    {
+      "ID": 16,
+      "Field Name": "Fax",
+      "Type": "short-text-fax"
+    },
+    {
+      "ID": 17,
+      "Field Name": "Job Position",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 18,
+      "Field Name": "Company",
+      "Type": "long-text"
+    },
+    {
+      "ID": 19,
+      "Field Name": "Department",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 20,
+      "Field Name": "Industry",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 21,
+      "Field Name": "Phone (office)",
+      "Type": "short-text"
+    },
+    {
+      "ID": 22,
+      "Field Name": "Fax (office)",
+      "Type": "short-text-fax"
+    },
+    {
+      "ID": 23,
+      "Field Name": "Number of Employees",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 24,
+      "Field Name": "Annual Revenue (in 000 EUR)",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 25,
+      "Field Name": "URL",
+      "Type": "URL"
+    },
+    {
+      "ID": 26,
+      "Field Name": "Preferred e-mail format",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 27,
+      "Field Name": "Avg. length of visit (minutes)",
+      "Type": "numeric-special"
+    },
+    {
+      "ID": 28,
+      "Field Name": "Page views per day",
+      "Type": "numeric-special"
+    },
+    {
+      "ID": 29,
+      "Field Name": "Days since last email sent",
+      "Type": "numeric-special"
+    },
+    {
+      "ID": 30,
+      "Field Name": "Response rate",
+      "Type": "numeric-special"
+    },
+    {
+      "ID": 31,
+      "Field Name": "Opt-in",
+      "Type": "single-choice-special"
+    },
+    {
+      "ID": 33,
+      "Field Name": "Contact source",
+      "Type": "single-choice-special"
+    },
+    {
+      "ID": 34,
+      "Field Name": "Contact form",
+      "Type": "multi-choice-special"
+    },
+    {
+      "ID": 35,
+      "Field Name": "Registration language",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 36,
+      "Field Name": "Newsletter",
+      "Type": "multi-choice-special"
+    },
+    {
+      "ID": 37,
+      "Field Name": "Mobile",
+      "Type": "short-text"
+    },
+    {
+      "ID": 38,
+      "Field Name": "First Name of Partner",
+      "Type": "short-text"
+    },
+    {
+      "ID": 39,
+      "Field Name": "Birth date of Partner",
+      "Type": "birthdate"
+    },
+    {
+      "ID": 40,
+      "Field Name": "Anniversary",
+      "Type": "date"
+    },
+    {
+      "ID": 41,
+      "Field Name": "Company Address",
+      "Type": "long-text"
+    },
+    {
+      "ID": 42,
+      "Field Name": "Zip Code (office)",
+      "Type": "short-text-numeric"
+    },
+	{
+      "ID": 43,
+      "Field Name": "City (office)",
+      "Type": "short-text"
+    },
+    {
+      "ID": 44,
+      "Field Name": "State (office)",
+      "Type": "short-text"
+    },
+    {
+      "ID": 45,
+      "Field Name": "Country (office)",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 46,
+      "Field Name": "Salutation",
+      "Type": "single-choice"
+    },
+    {
+      "ID": 47,
+      "Field Name": "Email-valid",
+      "Type": "single-choice-special"
+    },
+    {
+      "ID": 48,
+      "Field Name": "Date of first registration",
+      "Type": "date-special"
+    },
+    {
+      "ID": 49,
+      "Field Name": "IETF language tag",
+      "Type": "short-text"
+    }
+  ]
+};
+
+  // Function to replace field names in the dataset
+    function replaceFieldNames(dataToProcess, fieldsDataset) {
+      const result = dataToProcess.data.result;
+      const fieldsMap = {};
+
+      // Create a mapping of field IDs to field names
+      for (const field of fieldsDataset.fields) {
+        fieldsMap[field.ID] = field["Field Name"];
+      }
+
+      // Replace field names in each record
+      for (const record of result) {
+        const updatedRecord = {};
+
+        for (const [key, value] of Object.entries(record)) {
+          if (!isNaN(key)) {
+            const fieldName = fieldsMap[parseInt(key)];
+            if (fieldName) {
+              updatedRecord[fieldName] = value;
+            }
+          } else {
+            updatedRecord[key] = value;
+          }
+        }
+
+        // Replace the original record with the updated one
+        const index = result.indexOf(record);
+        result[index] = updatedRecord;
+      }
+
+      return result;
+    }
+
+    // Call the function to replace field names
+    const processedData = replaceFieldNames(dataToProcess, fieldsDataset);
+
+    // Function to create HTML table from the processed data
+    function createTable(data) {
+      const table = document.getElementById("dataTable");
+      const firstRecord = data[0];
+
+      const keys = Object.keys(firstRecord);
+      const headerRow = document.createElement("tr");
+      keys.forEach(key => {
+        if (!isNaN(key)) {
+          const fieldName = fieldsDataset.fields.find(field => field.ID === parseInt(key))["Field Name"];
+          const th = document.createElement("th");
+          th.textContent = fieldName;
+          headerRow.appendChild(th);
+        }
+      });
+
+      table.appendChild(headerRow);
+
+      data.forEach(record => {
+        const row = document.createElement("tr");
+        keys.forEach(key => {
+          if (!isNaN(key)) {
+            const value = record[key];
+            const td = document.createElement("td");
+            td.textContent = value !== null ? value : "N/A";
+            row.appendChild(td);
+          }
+        });
+        table.appendChild(row);
+      });
+    }
+
+    // Create the HTML table
+    createTable(processedData);
+  </script>
+</body>
+</html>
+
