@@ -375,7 +375,7 @@
     // Call the function to replace field names
     const processedData = replaceFieldNames(dataToProcess, fieldsDataset);
 
-  // Function to create HTML table from the processed data
+ // Function to create HTML table from the processed data
     function createTable(data, fieldsDataset) {
       const table = document.getElementById("dataTable");
       const firstRecord = data[0];
@@ -383,13 +383,10 @@
       const keys = Object.keys(firstRecord);
       const headerRow = document.createElement("tr");
       keys.forEach(key => {
-        const keyAsNumber = Number(key);
-        if (isNaN(keyAsNumber)) {
-          const fieldName = fieldsDataset.fields.find(field => field.ID === keyAsNumber)["Field Name"];
-          const th = document.createElement("th");
-          th.textContent = fieldName;
-          headerRow.appendChild(th);
-        }
+        const fieldName = fieldsDataset.fields.find(field => field.ID.toString() === key)["Field Name"];
+        const th = document.createElement("th");
+        th.textContent = fieldName;
+        headerRow.appendChild(th);
       });
 
       table.appendChild(headerRow);
@@ -397,13 +394,10 @@
       data.forEach(record => {
         const row = document.createElement("tr");
         keys.forEach(key => {
-          const keyAsNumber = Number(key);
-          if (!isNaN(keyAsNumber)) {
-            const value = record[key];
-            const td = document.createElement("td");
-            td.textContent = value !== null ? value : "N/A";
-            row.appendChild(td);
-          }
+          const value = record[key];
+          const td = document.createElement("td");
+          td.textContent = value !== null ? value : "N/A";
+          row.appendChild(td);
         });
         table.appendChild(row);
       });
@@ -414,3 +408,4 @@
   </script>
 </body>
 </html>
+
