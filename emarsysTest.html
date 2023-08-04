@@ -497,7 +497,7 @@
     function createTableRow(fieldName, key, value) {
       const tr = document.createElement("tr");
       const tdFieldName = document.createElement("td");
-      tdFieldName.innerHTML = `${fieldName}<br><strong>${key}</strong><br>${value}`;
+      tdFieldName.innerHTML = `${fieldName}<br>${value}`;
       tr.appendChild(tdFieldName);
       return tr;
     }
