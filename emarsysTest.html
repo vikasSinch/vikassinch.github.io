@@ -90,251 +90,406 @@
 
     // The dataset containing the fields information
     const fieldsDataset = {
-  "fields": [
+  "data": [
     {
-      "ID": 0,
-      "Field Name": "Interests",
-      "Type": "multi-choice"
+      "id": 0,
+      "name": "Interests",
+      "application_type": "interests"
     },
     {
-      "ID": 1,
-      "Field Name": "First Name",
-      "Type": "short-text"
+      "id": 9,
+      "name": "Title",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 2,
-      "Field Name": "Last Name",
-      "Type": "short-text"
+      "id": 46,
+      "name": "Salutation",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 3,
-      "Field Name": "E-Mail",
-      "Type": "long-text"
+      "id": 1,
+      "name": "First Name",
+      "application_type": "shorttext"
     },
     {
-      "ID": 4,
-      "Field Name": "Date of Birth",
-      "Type": "birthdate"
+      "id": 2,
+      "name": "Last Name",
+      "application_type": "shorttext"
     },
     {
-      "ID": 5,
-      "Field Name": "Gender",
-      "Type": "single-choice"
+      "id": 3,
+      "name": "Email",
+      "application_type": "longtext"
     },
     {
-      "ID": 6,
-      "Field Name": "Marital Status",
-      "Type": "single-choice"
+      "id": 26,
+      "name": "Preferred email format",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 7,
-      "Field Name": "Children",
-      "Type": "single-choice"
+      "id": 10,
+      "name": "Address",
+      "application_type": "longtext"
     },
     {
-      "ID": 8,
-      "Field Name": "Education",
-      "Type": "single-choice"
+      "id": 13,
+      "name": "ZIP Code",
+      "application_type": "shorttext"
     },
     {
-      "ID": 9,
-      "Field Name": "Title",
-      "Type": "single-choice"
+      "id": 11,
+      "name": "City",
+      "application_type": "shorttext"
     },
     {
-      "ID": 10,
-      "Field Name": "Address",
-      "Type": "long-text"
+      "id": 12,
+      "name": "State",
+      "application_type": "shorttext"
     },
     {
-      "ID": 11,
-      "Field Name": "City",
-      "Type": "short-text"
+      "id": 14,
+      "name": "Country or region",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 12,
-      "Field Name": "State",
-      "Type": "short-text"
+      "id": 15,
+      "name": "Phone",
+      "application_type": "shorttext"
     },
     {
-      "ID": 13,
-      "Field Name": "ZIP Code",
-      "Type": "short-text"
+      "id": 37,
+      "name": "Mobile",
+      "application_type": "shorttext"
     },
     {
-      "ID": 14,
-      "Field Name": "Country",
-      "Type": "single-choice"
+      "id": 16,
+      "name": "Fax",
+      "application_type": "fax"
     },
     {
-      "ID": 15,
-      "Field Name": "Phone",
-      "Type": "short-text"
+      "id": 5,
+      "name": "Gender",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 16,
-      "Field Name": "Fax",
-      "Type": "short-text-fax"
+      "id": 4,
+      "name": "Date of Birth",
+      "application_type": "birthdate"
     },
     {
-      "ID": 17,
-      "Field Name": "Job Position",
-      "Type": "single-choice"
+      "id": 8,
+      "name": "Education",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 18,
-      "Field Name": "Company",
-      "Type": "long-text"
+      "id": 6,
+      "name": "Marital Status",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 19,
-      "Field Name": "Department",
-      "Type": "single-choice"
+      "id": 38,
+      "name": "First Name of Partner",
+      "application_type": "shorttext"
     },
     {
-      "ID": 20,
-      "Field Name": "Industry",
-      "Type": "single-choice"
+      "id": 39,
+      "name": "Birthdate of Partner",
+      "application_type": "birthdate"
     },
     {
-      "ID": 21,
-      "Field Name": "Phone (office)",
-      "Type": "short-text"
+      "id": 40,
+      "name": "Anniversary",
+      "application_type": "date"
     },
     {
-      "ID": 22,
-      "Field Name": "Fax (office)",
-      "Type": "short-text-fax"
+      "id": 7,
+      "name": "Children",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 23,
-      "Field Name": "Number of Employees",
-      "Type": "single-choice"
+      "id": 18,
+      "name": "Company",
+      "application_type": "longtext"
     },
     {
-      "ID": 24,
-      "Field Name": "Annual Revenue (in 000 EUR)",
-      "Type": "single-choice"
+      "id": 41,
+      "name": "Company Address",
+      "application_type": "longtext"
     },
     {
-      "ID": 25,
-      "Field Name": "URL",
-      "Type": "URL"
+      "id": 42,
+      "name": "Zip Code (office)",
+      "application_type": "shorttext"
     },
     {
-      "ID": 26,
-      "Field Name": "Preferred e-mail format",
-      "Type": "single-choice"
+      "id": 43,
+      "name": "City (office)",
+      "application_type": "shorttext"
     },
     {
-      "ID": 27,
-      "Field Name": "Avg. length of visit (minutes)",
-      "Type": "numeric-special"
+      "id": 44,
+      "name": "State (office)",
+      "application_type": "shorttext"
     },
     {
-      "ID": 28,
-      "Field Name": "Page views per day",
-      "Type": "numeric-special"
+      "id": 45,
+      "name": "Country or region (office)",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 29,
-      "Field Name": "Days since last email sent",
-      "Type": "numeric-special"
+      "id": 21,
+      "name": "Phone (office)",
+      "application_type": "shorttext"
     },
     {
-      "ID": 30,
-      "Field Name": "Response rate",
-      "Type": "numeric-special"
+      "id": 22,
+      "name": "Fax (office)",
+      "application_type": "fax"
     },
     {
-      "ID": 31,
-      "Field Name": "Opt-in",
-      "Type": "single-choice-special"
+      "id": 25,
+      "name": "URL",
+      "application_type": "url"
     },
     {
-      "ID": 33,
-      "Field Name": "Contact source",
-      "Type": "single-choice-special"
+      "id": 17,
+      "name": "Job Position",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 34,
-      "Field Name": "Contact form",
-      "Type": "multi-choice-special"
+      "id": 19,
+      "name": "Department",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 35,
-      "Field Name": "Registration language",
-      "Type": "single-choice"
+      "id": 20,
+      "name": "Industry",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 36,
-      "Field Name": "Newsletter",
-      "Type": "multi-choice-special"
+      "id": 23,
+      "name": "Number of Employees",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 37,
-      "Field Name": "Mobile",
-      "Type": "short-text"
+      "id": 24,
+      "name": "Annual Revenue (in 000 EUR)",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 38,
-      "Field Name": "First Name of Partner",
-      "Type": "short-text"
+      "id": 3070,
+      "name": "Do not track me",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 39,
-      "Field Name": "Birth date of Partner",
-      "Type": "birthdate"
+      "id": 3071,
+      "name": "Do not track me in Email",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 40,
-      "Field Name": "Anniversary",
-      "Type": "date"
+      "id": 3072,
+      "name": "IETF language tag",
+      "application_type": "shorttext"
     },
     {
-      "ID": 41,
-      "Field Name": "Company Address",
-      "Type": "long-text"
+      "id": 3073,
+      "name": "Mobile SMS Opt-In",
+      "application_type": "singlechoice"
     },
     {
-      "ID": 42,
-      "Field Name": "Zip Code (office)",
-      "Type": "short-text-numeric"
-    },
-	{
-      "ID": 43,
-      "Field Name": "City (office)",
-      "Type": "short-text"
+      "id": 3074,
+      "name": "Mobile Advertising ID",
+      "application_type": "shorttext"
     },
     {
-      "ID": 44,
-      "Field Name": "State (office)",
-      "Type": "short-text"
+      "id": 3075,
+      "name": "Mobile SMS Bad Number",
+      "application_type": "shorttext"
     },
     {
-      "ID": 45,
-      "Field Name": "Country (office)",
-      "Type": "single-choice"
+      "id": 3076,
+      "name": "Mobile SMS Last Sent",
+      "application_type": "date"
     },
     {
-      "ID": 46,
-      "Field Name": "Salutation",
-      "Type": "single-choice"
+      "id": 3077,
+      "name": "Mobile SMS Operator Code",
+      "application_type": "numeric"
     },
     {
-      "ID": 47,
-      "Field Name": "Email-valid",
-      "Type": "single-choice-special"
+      "id": 3078,
+      "name": "Mobile SMS Normalized",
+      "application_type": "numeric"
     },
     {
-      "ID": 48,
-      "Field Name": "Date of first registration",
-      "Type": "date-special"
+      "id": 3079,
+      "name": "predictUserID",
+      "application_type": "shorttext"
     },
     {
-      "ID": 49,
-      "Field Name": "IETF language tag",
-      "Type": "short-text"
+      "id": 3080,
+      "name": "predictSecret",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 3081,
+      "name": "predict top categories",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3082,
+      "name": "predict last session date",
+      "application_type": "date"
+    },
+    {
+      "id": 3083,
+      "name": "predict last session time spent",
+      "application_type": "numeric"
+    },
+    {
+      "id": 3084,
+      "name": "predict last session products",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3085,
+      "name": "predict last session categories",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3086,
+      "name": "predict last abandoned date",
+      "application_type": "date"
+    },
+    {
+      "id": 3087,
+      "name": "predict last abandoned products",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3088,
+      "name": "predict last abandoned categories",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3089,
+      "name": "predict last abandoned total price",
+      "application_type": "numeric"
+    },
+    {
+      "id": 3090,
+      "name": "predict last purchase date",
+      "application_type": "date"
+    },
+    {
+      "id": 3091,
+      "name": "predict last purchase products",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3092,
+      "name": "predict last purchase categories",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3093,
+      "name": "predict last purchase total price",
+      "application_type": "numeric"
+    },
+    {
+      "id": 4424,
+      "name": "messengerpeople_fb",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4425,
+      "name": "messengerpeople_im",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4426,
+      "name": "messengerpeople_in",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4427,
+      "name": "messengerpeople_tg",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4428,
+      "name": "messengerpeople_vi",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4429,
+      "name": "messengerpeople_wb",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4497,
+      "name": "messengerpeople_wa",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 4792,
+      "name": "ContactPro_001",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 27,
+      "name": "Avg. length of visit (minutes)",
+      "application_type": "special"
+    },
+    {
+      "id": 28,
+      "name": "Page views per day",
+      "application_type": "special"
+    },
+    {
+      "id": 29,
+      "name": "Days since last email sent",
+      "application_type": "special"
+    },
+    {
+      "id": 31,
+      "name": "Opt-In",
+      "application_type": "special"
+    },
+    {
+      "id": 32,
+      "name": "User status",
+      "application_type": "special"
+    },
+    {
+      "id": 33,
+      "name": "Contact source",
+      "application_type": "special"
+    },
+    {
+      "id": 34,
+      "name": "Contact form",
+      "application_type": "special"
+    },
+    {
+      "id": 35,
+      "name": "Registration Language",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 36,
+      "name": "Newsletter",
+      "application_type": "special"
+    },
+    {
+      "id": 47,
+      "name": "Email valid",
+      "application_type": "special"
+    },
+    {
+      "id": 48,
+      "name": "Date of first registration",
+      "application_type": "special"
     }
   ]
 };
@@ -375,35 +530,539 @@
     // Call the function to replace field names
     const processedData = replaceFieldNames(dataToProcess, fieldsDataset);
 
- // Function to create HTML table from the processed data
+// Function to create HTML table from the processed data
     function createTable(data, fieldsDataset) {
       const table = document.getElementById("dataTable");
-      const keys = Object.keys(fieldsDataset.fields.reduce((obj, field) => {
-        obj[field.ID] = field["Field Name"];
-        return obj;
-      }, {}));
 
-      const headerRow = document.createElement("tr");
-      keys.forEach(key => {
-        const field = fieldsDataset.fields.find(field => field.ID.toString() === key);
-        if (field) {
-          const th = document.createElement("th");
-          th.textContent = field["Field Name"];
-          headerRow.appendChild(th);
-        }
+      fieldsDataset.fields.forEach(field => {
+        const tr = document.createElement("tr");
+        const th = document.createElement("th");
+        const td = document.createElement("td");
+        th.textContent = field["Field Name"];
+        td.textContent = data[0][field.ID];
+        tr.appendChild(th);
+        tr.appendChild(td);
+        table.appendChild(tr);
       });
+    }
 
-      table.appendChild(headerRow);
+    // Create the HTML table
+    createTable(processedData, fieldsDataset);
+  </script>
+</body>
+</html>
+This version of the createTable function will create a table where each key (field name) is in a separate row, and the corresponding value is displayed in the next column. The table will display the key-value pairs for all the fields in the fieldsDataset.
 
-      data.forEach(record => {
-        const row = document.createElement("tr");
-        keys.forEach(key => {
-          const value = record[key];
-          const td = document.createElement("td");
-          td.textContent = value !== null ? value : "N/A";
-          row.appendChild(td);
-        });
-        table.appendChild(row);
+
+
+
+User
+show the the output for this
+ChatGPT
+I apologize for the confusion, but as an AI language model, I am unable to execute code or display live output directly. However, I can describe the expected output based on the code provided.
+
+The provided code will generate an HTML table with two columns. The first column will display the field names from the fieldsDataset, and the second column will display the corresponding values from the processedData.
+
+The fieldsDataset contains field information for two fields: "First Name" and "Last Name." Let's assume the processed data is as follows:
+
+javascript
+Copy code
+const processedData = [
+  {
+    "1": "John",
+    "2": "Doe"
+    // ... (other data fields)
+  }
+];
+Based on the provided code, the generated table will look like this:
+
+markdown
+Copy code
+------------------------------------------------
+| Field Name    | Value                         |
+------------------------------------------------
+| First Name    | John                          |
+------------------------------------------------
+| Last Name     | Doe                           |
+------------------------------------------------
+The table will have two rows, one for each field in the fieldsDataset. The first column will display the field names, and the second column will display the corresponding values from the processed data.
+
+
+
+
+User
+There is a equavalent fieldsDataset below, use this, and change the field name to name as in this new variable:
+ const fieldsDataset = {
+  "data": [
+    {
+      "id": 0,
+      "name": "Interests",
+      "application_type": "interests"
+    },
+    {
+      "id": 9,
+      "name": "Title",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 46,
+      "name": "Salutation",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 1,
+      "name": "First Name",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 2,
+      "name": "Last Name",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 3,
+      "name": "Email",
+      "application_type": "longtext"
+    },
+    {
+      "id": 26,
+      "name": "Preferred email format",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 10,
+      "name": "Address",
+      "application_type": "longtext"
+    },
+    {
+      "id": 13,
+      "name": "ZIP Code",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 11,
+      "name": "City",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 12,
+      "name": "State",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 14,
+      "name": "Country or region",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 15,
+      "name": "Phone",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 37,
+      "name": "Mobile",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 16,
+      "name": "Fax",
+      "application_type": "fax"
+    },
+    {
+      "id": 5,
+      "name": "Gender",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 4,
+      "name": "Date of Birth",
+      "application_type": "birthdate"
+    },
+    {
+      "id": 8,
+      "name": "Education",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 6,
+      "name": "Marital Status",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 38,
+      "name": "First Name of Partner",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 39,
+      "name": "Birthdate of Partner",
+      "application_type": "birthdate"
+    },
+    {
+      "id": 40,
+      "name": "Anniversary",
+      "application_type": "date"
+    },
+    {
+      "id": 7,
+      "name": "Children",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 18,
+      "name": "Company",
+      "application_type": "longtext"
+    },
+    {
+      "id": 41,
+      "name": "Company Address",
+      "application_type": "longtext"
+    },
+    {
+      "id": 42,
+      "name": "Zip Code (office)",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 43,
+      "name": "City (office)",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 44,
+      "name": "State (office)",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 45,
+      "name": "Country or region (office)",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 21,
+      "name": "Phone (office)",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 22,
+      "name": "Fax (office)",
+      "application_type": "fax"
+    },
+    {
+      "id": 25,
+      "name": "URL",
+      "application_type": "url"
+    },
+    {
+      "id": 17,
+      "name": "Job Position",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 19,
+      "name": "Department",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 20,
+      "name": "Industry",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 23,
+      "name": "Number of Employees",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 24,
+      "name": "Annual Revenue (in 000 EUR)",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 3070,
+      "name": "Do not track me",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 3071,
+      "name": "Do not track me in Email",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 3072,
+      "name": "IETF language tag",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 3073,
+      "name": "Mobile SMS Opt-In",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 3074,
+      "name": "Mobile Advertising ID",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 3075,
+      "name": "Mobile SMS Bad Number",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 3076,
+      "name": "Mobile SMS Last Sent",
+      "application_type": "date"
+    },
+    {
+      "id": 3077,
+      "name": "Mobile SMS Operator Code",
+      "application_type": "numeric"
+    },
+    {
+      "id": 3078,
+      "name": "Mobile SMS Normalized",
+      "application_type": "numeric"
+    },
+    {
+      "id": 3079,
+      "name": "predictUserID",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 3080,
+      "name": "predictSecret",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 3081,
+      "name": "predict top categories",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3082,
+      "name": "predict last session date",
+      "application_type": "date"
+    },
+    {
+      "id": 3083,
+      "name": "predict last session time spent",
+      "application_type": "numeric"
+    },
+    {
+      "id": 3084,
+      "name": "predict last session products",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3085,
+      "name": "predict last session categories",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3086,
+      "name": "predict last abandoned date",
+      "application_type": "date"
+    },
+    {
+      "id": 3087,
+      "name": "predict last abandoned products",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3088,
+      "name": "predict last abandoned categories",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3089,
+      "name": "predict last abandoned total price",
+      "application_type": "numeric"
+    },
+    {
+      "id": 3090,
+      "name": "predict last purchase date",
+      "application_type": "date"
+    },
+    {
+      "id": 3091,
+      "name": "predict last purchase products",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3092,
+      "name": "predict last purchase categories",
+      "application_type": "longtext"
+    },
+    {
+      "id": 3093,
+      "name": "predict last purchase total price",
+      "application_type": "numeric"
+    },
+    {
+      "id": 4424,
+      "name": "messengerpeople_fb",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4425,
+      "name": "messengerpeople_im",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4426,
+      "name": "messengerpeople_in",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4427,
+      "name": "messengerpeople_tg",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4428,
+      "name": "messengerpeople_vi",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4429,
+      "name": "messengerpeople_wb",
+      "application_type": "longtext"
+    },
+    {
+      "id": 4497,
+      "name": "messengerpeople_wa",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 4792,
+      "name": "ContactPro_001",
+      "application_type": "shorttext"
+    },
+    {
+      "id": 27,
+      "name": "Avg. length of visit (minutes)",
+      "application_type": "special"
+    },
+    {
+      "id": 28,
+      "name": "Page views per day",
+      "application_type": "special"
+    },
+    {
+      "id": 29,
+      "name": "Days since last email sent",
+      "application_type": "special"
+    },
+    {
+      "id": 31,
+      "name": "Opt-In",
+      "application_type": "special"
+    },
+    {
+      "id": 32,
+      "name": "User status",
+      "application_type": "special"
+    },
+    {
+      "id": 33,
+      "name": "Contact source",
+      "application_type": "special"
+    },
+    {
+      "id": 34,
+      "name": "Contact form",
+      "application_type": "special"
+    },
+    {
+      "id": 35,
+      "name": "Registration Language",
+      "application_type": "singlechoice"
+    },
+    {
+      "id": 36,
+      "name": "Newsletter",
+      "application_type": "special"
+    },
+    {
+      "id": 47,
+      "name": "Email valid",
+      "application_type": "special"
+    },
+    {
+      "id": 48,
+      "name": "Date of first registration",
+      "application_type": "special"
+    }
+  ]
+};
+ChatGPT
+Sure! I'll use the new fieldsDataset you provided and change the field names accordingly.
+
+Here's the updated createTable function with the new fieldsDataset:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Data Table</h1>
+  <table id="dataTable"></table>
+
+  <script>
+    // The original dataset with field names to be replaced
+    const dataToProcess = {
+      // ... (your original data)
+    };
+
+    // The new fieldsDataset with updated field names
+    const fieldsDataset = {
+      "data": [
+        { "id": 0, "name": "Interests", "application_type": "interests" },
+        { "id": 9, "name": "Title", "application_type": "singlechoice" },
+        // ... (rest of the fields information)
+      ]
+    };
+
+    // Function to replace field names in the dataset
+    function replaceFieldNames(dataToProcess, fieldsDataset) {
+      // ... (the previous replaceFieldNames function code)
+
+      return result;
+    }
+
+    // Call the function to replace field names
+    const processedData = replaceFieldNames(dataToProcess, fieldsDataset);
+
+    // Function to create HTML table from the processed data
+    function createTable(data, fieldsDataset) {
+      const table = document.getElementById("dataTable");
+
+      fieldsDataset.data.forEach(field => {
+        const tr = document.createElement("tr");
+        const th = document.createElement("th");
+        const td = document.createElement("td");
+        th.textContent = field.name;
+        td.textContent = data[0][field.id];
+        tr.appendChild(th);
+        tr.appendChild(td);
+        table.appendChild(tr);
       });
     }
 
