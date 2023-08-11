@@ -60,7 +60,7 @@
             for (const key in sapData) {
               if (sapData.hasOwnProperty(key)) {
                   const value = sapData[key];
-                 if (key !== "id" && key !=="uid" && value !== "null"){
+                 if (key !== "id" && key !=="uid" && value !== null){
                    const row = createTableRow(key, value);
                    table.appendChild(row);
                  }
