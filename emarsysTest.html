@@ -14,6 +14,9 @@
       padding: 8px;
       text-align: left;
     }
+    .grey-shade {
+      color: #888888;
+    }
   </style>
 </head>
 <body>
@@ -35,7 +38,7 @@
     function createTableRow(key, value) {
       const tr = document.createElement("tr");
       const td = document.createElement("td");
-      td.innerHTML = `<b>${key}</b><br>${value}`;
+      td.innerHTML = `<b>${key}</b><br><span class="grey-shade">${value}</span>`;
       tr.appendChild(td);
       return tr;
     }
