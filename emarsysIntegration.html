@@ -3,20 +3,80 @@
    <head>
       <meta charset=" UTF-8">
       <title>Contact Data</title>
+       <style>
+       table {
+         border-collapse: collapse;
+         width: 100%;
+       }
+       th, td {
+         border: none;
+         padding: 8px;
+         text-align: left;
+       }
+       .grey-shade {
+         color: #888888;
+       }
+     </style>
    </head>
-   <body style="margin: 0;width:100%;height: 100%">
+      <body style="margin: 0;width:100%;height: 100%">
+      <h2>Emarsys Campaign</h2>
+       <table id="dataTable">
+       <tr>
+         <th>Customer Details</th>
+       </tr>
+     </table>
+      
       <script>
         var Interaction;
+         var contatData;
         var _onMessage = function(oEvent) {
            if (oEvent.data.type === "response" && oEvent.data.payload.result !== "error") {
            	var data = oEvent.data.payload.value;
             	if (data.originator)
                   alert(JSON.stringify(data.attached_data))
+              contatData = data.attached_data;
                   Interaction = data;
             	}
         }
         window.addEventListener("message", _onMessage);
         window.parent.postMessage({type: "init", payload: false, id: "fn-1"}, "*");
       </script>
+
+      <script>
+          // The JSON data
+        /*  const contatData = {
+            "SAPContactData": "{\"id\":\"370791343\",\"uid\":\"Y8eV006lMz\",\"First Name\":\"Vsadfadsikas\",\"Last Name\":\"Mittasdfdasfal\",\"Email\":\"viasdfadskas.miasdfasdttal@nokia.com\",\"Date of Birth\":\"1975-01-09\",\"Gender\":\"Male\",\"Marital Status\":\"Married\",\"Children\":\"1\",\"Education\":\"College, College/University degree\",\"Title\":\"Dr.\",\"Address\":\"Lsadfsadinnoitustie 4\",\"City\":\"Espsdfdasfoo\",\"State\":\"Uussdfasdfimma\",\"ZIP Code\":\"0262343200\",\"Country or region\":\"UK\",\"Phone\":null,\"Fax\":null,\"Job Position\":\"Student\",\"Company\":\"Sincewerwh\",\"Department\":\"Information Technology\",\"Industry\":\"Financial Services\",\"Phone (office)\":null,\"Fax (office)\":null,\"Number of Employees\":\"1,000 - 2,499\",\"Annual Revenue (in 000 EUR)\":null,\"URL\":\"www.nokia.com\",\"Preferred email format\":null,\"Page views per day\":null,\"Days since last email sent\":null,\"Avg\":{\" length of visit (minutes)\":null}}"
+            // ... (other data)
+          };
+      */
+          // Function to create HTML table row for a single record
+          function createTableRow(key, value) {
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.innerHTML = `<span class="grey-shade">${key}</span><br>${value}`;
+            tr.appendChild(td);
+            return tr;
+          }
+      
+          // Function to parse SAPContactData and create table
+          function parseAndPopulateTable(jsonData) {
+            const table = document.getElementById("dataTable");
+            const sapData = JSON.parse(contatData.EmarsysContactData);
+      
+            // Loop through the parsed data and create table rows
+            for (const key in sapData) {
+              if (sapData.hasOwnProperty(key)) {
+                const value = sapData[key];
+                const row = createTableRow(key, value);
+                table.appendChild(row);
+              }
+            }
+          }
+      
+          // Parse and populate the table
+          parseAndPopulateTable(jsonData);
+     </script>
+
+         
    </body>
 </html>
