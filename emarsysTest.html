@@ -17,7 +17,7 @@
   </style>
 </head>
 <body>
-  <h1>Data Table</h1>
+  <h1>Emarsys Campaign</h1>
   <table id="dataTable">
     <tr>
       <th>Field Name</th>
@@ -33,14 +33,11 @@
     };
 
     // Function to create HTML table row for a single record
-    function createTableRow(fieldName, value) {
+    function createTableRow(key, value) {
       const tr = document.createElement("tr");
-      const tdFieldName = document.createElement("td");
-      const tdValue = document.createElement("td");
-      tdFieldName.textContent = fieldName;
-      tdValue.textContent = value;
-      tr.appendChild(tdFieldName);
-      tr.appendChild(tdValue);
+      const td = document.createElement("td");
+      td.innerHTML = `<b>${key}</b><br>${value}`;
+      tr.appendChild(td);
       return tr;
     }
 
