@@ -33,7 +33,7 @@
            if (oEvent.data.type === "response" && oEvent.data.payload.result !== "error") {
            	var data = oEvent.data.payload.value;
             	if (data.originator)
-                  alert(JSON.stringify(data.attached_data))
+                //  alert(JSON.stringify(data.attached_data))
                  parseAndPopulateTable(data.attached_data);
                Interaction = data;
             	}
