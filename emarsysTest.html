@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Details</title>
+  <title>Data Table</title>
   <style>
     table {
       border-collapse: collapse;
@@ -17,511 +17,50 @@
   </style>
 </head>
 <body>
-  <h1>Customer Details</h1>
-  <table id="dataTable"></table>
+  <h1>Data Table</h1>
+  <table id="dataTable">
+    <tr>
+      <th>Field Name</th>
+      <th>Value</th>
+    </tr>
+  </table>
 
   <script>
-    // The original dataset with field names to be replaced
-    const dataToProcess = {
-    "replyCode":0,
-    "replyText":"OK",
-    "data":{
-       "errors":[
-          
-       ],
-       "result":[
-          {
-             "id":"370791343",
-             "uid":"Y8eV006lMz",
-             "1":"Vikas",
-             "2":"Mittal",
-             "3":"vikas.mittal@sinch.com",
-             "4":"1975-01-09",
-             "5":"1",
-             "6":"2",
-             "7":"2",
-             "8":"5",
-             "9":"4",
-             "10":"Linnoitustie 4",
-             "11":"Espoo",
-             "12":"Uusimma",
-             "13":"02600",
-             "14":"60",
-             "15":null,
-             "16":null,
-             "17":"26",
-             "18":"Sinch",
-             "19":"4",
-             "20":"7",
-             "21":null,
-             "22":null,
-             "23":"7",
-             "24":null,
-             "25":"www.sinch.com",
-             "26":null,
-             "27":null,
-             "28":null,
-             "29":null,
-             "30":null,
-             "31":"1",
-             "32":null,
-             "33":"2",
-             "34":[
-                
-             ],
-             "35":"1",
-             "36":null,
-             "37":"+358403573593",
-             "38":"Partners Name",
-             "39":"1978-01-01",
-             "40":"2000-02-01",
-             "41":null,
-             "42":null,
-             "43":null,
-             "44":null,
-             "45":null,
-             "46":"1",
-             "47":"1",
-             "48":"2023-07-03"
-          }
-       ]
-    }
- };
+    // The JSON data
+    const jsonData = {
+      "SAPContactData": "{\"id\":\"370791343\",\"uid\":\"Y8eV006lMz\",\"First Name\":\"Vsadfadsikas\",\"Last Name\":\"Mittasdfdasfal\",\"Email\":\"viasdfadskas.miasdfasdttal@nokia.com\",\"Date of Birth\":\"1975-01-09\",\"Gender\":\"Male\",\"Marital Status\":\"Married\",\"Children\":\"1\",\"Education\":\"College, College/University degree\",\"Title\":\"Dr.\",\"Address\":\"Lsadfsadinnoitustie 4\",\"City\":\"Espsdfdasfoo\",\"State\":\"Uussdfasdfimma\",\"ZIP Code\":\"0262343200\",\"Country or region\":\"UK\",\"Phone\":null,\"Fax\":null,\"Job Position\":\"Student\",\"Company\":\"Sincewerwh\",\"Department\":\"Information Technology\",\"Industry\":\"Financial Services\",\"Phone (office)\":null,\"Fax (office)\":null,\"Number of Employees\":\"1,000 - 2,499\",\"Annual Revenue (in 000 EUR)\":null,\"URL\":\"www.nokia.com\",\"Preferred email format\":null,\"Page views per day\":null,\"Days since last email sent\":null,\"Avg\":{\" length of visit (minutes)\":null}}"
+      // ... (other data)
+    };
 
-    // The dataset containing the fields information
-    const fieldsDataset = {
-  "data": [
-    {
-      "id": 0,
-      "name": "Interests",
-      "application_type": "interests"
-    },
-    {
-      "id": 9,
-      "name": "Title",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 46,
-      "name": "Salutation",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 1,
-      "name": "First Name",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 2,
-      "name": "Last Name",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 3,
-      "name": "Email",
-      "application_type": "longtext"
-    },
-    {
-      "id": 26,
-      "name": "Preferred email format",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 10,
-      "name": "Address",
-      "application_type": "longtext"
-    },
-    {
-      "id": 13,
-      "name": "ZIP Code",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 11,
-      "name": "City",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 12,
-      "name": "State",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 14,
-      "name": "Country or region",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 15,
-      "name": "Phone",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 37,
-      "name": "Mobile",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 16,
-      "name": "Fax",
-      "application_type": "fax"
-    },
-    {
-      "id": 5,
-      "name": "Gender",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 4,
-      "name": "Date of Birth",
-      "application_type": "birthdate"
-    },
-    {
-      "id": 8,
-      "name": "Education",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 6,
-      "name": "Marital Status",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 38,
-      "name": "First Name of Partner",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 39,
-      "name": "Birthdate of Partner",
-      "application_type": "birthdate"
-    },
-    {
-      "id": 40,
-      "name": "Anniversary",
-      "application_type": "date"
-    },
-    {
-      "id": 7,
-      "name": "Children",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 18,
-      "name": "Company",
-      "application_type": "longtext"
-    },
-    {
-      "id": 41,
-      "name": "Company Address",
-      "application_type": "longtext"
-    },
-    {
-      "id": 42,
-      "name": "Zip Code (office)",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 43,
-      "name": "City (office)",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 44,
-      "name": "State (office)",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 45,
-      "name": "Country or region (office)",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 21,
-      "name": "Phone (office)",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 22,
-      "name": "Fax (office)",
-      "application_type": "fax"
-    },
-    {
-      "id": 25,
-      "name": "URL",
-      "application_type": "url"
-    },
-    {
-      "id": 17,
-      "name": "Job Position",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 19,
-      "name": "Department",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 20,
-      "name": "Industry",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 23,
-      "name": "Number of Employees",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 24,
-      "name": "Annual Revenue (in 000 EUR)",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 3070,
-      "name": "Do not track me",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 3071,
-      "name": "Do not track me in Email",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 3072,
-      "name": "IETF language tag",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 3073,
-      "name": "Mobile SMS Opt-In",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 3074,
-      "name": "Mobile Advertising ID",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 3075,
-      "name": "Mobile SMS Bad Number",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 3076,
-      "name": "Mobile SMS Last Sent",
-      "application_type": "date"
-    },
-    {
-      "id": 3077,
-      "name": "Mobile SMS Operator Code",
-      "application_type": "numeric"
-    },
-    {
-      "id": 3078,
-      "name": "Mobile SMS Normalized",
-      "application_type": "numeric"
-    },
-    {
-      "id": 3079,
-      "name": "predictUserID",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 3080,
-      "name": "predictSecret",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 3081,
-      "name": "predict top categories",
-      "application_type": "longtext"
-    },
-    {
-      "id": 3082,
-      "name": "predict last session date",
-      "application_type": "date"
-    },
-    {
-      "id": 3083,
-      "name": "predict last session time spent",
-      "application_type": "numeric"
-    },
-    {
-      "id": 3084,
-      "name": "predict last session products",
-      "application_type": "longtext"
-    },
-    {
-      "id": 3085,
-      "name": "predict last session categories",
-      "application_type": "longtext"
-    },
-    {
-      "id": 3086,
-      "name": "predict last abandoned date",
-      "application_type": "date"
-    },
-    {
-      "id": 3087,
-      "name": "predict last abandoned products",
-      "application_type": "longtext"
-    },
-    {
-      "id": 3088,
-      "name": "predict last abandoned categories",
-      "application_type": "longtext"
-    },
-    {
-      "id": 3089,
-      "name": "predict last abandoned total price",
-      "application_type": "numeric"
-    },
-    {
-      "id": 3090,
-      "name": "predict last purchase date",
-      "application_type": "date"
-    },
-    {
-      "id": 3091,
-      "name": "predict last purchase products",
-      "application_type": "longtext"
-    },
-    {
-      "id": 3092,
-      "name": "predict last purchase categories",
-      "application_type": "longtext"
-    },
-    {
-      "id": 3093,
-      "name": "predict last purchase total price",
-      "application_type": "numeric"
-    },
-    {
-      "id": 4424,
-      "name": "messengerpeople_fb",
-      "application_type": "longtext"
-    },
-    {
-      "id": 4425,
-      "name": "messengerpeople_im",
-      "application_type": "longtext"
-    },
-    {
-      "id": 4426,
-      "name": "messengerpeople_in",
-      "application_type": "longtext"
-    },
-    {
-      "id": 4427,
-      "name": "messengerpeople_tg",
-      "application_type": "longtext"
-    },
-    {
-      "id": 4428,
-      "name": "messengerpeople_vi",
-      "application_type": "longtext"
-    },
-    {
-      "id": 4429,
-      "name": "messengerpeople_wb",
-      "application_type": "longtext"
-    },
-    {
-      "id": 4497,
-      "name": "messengerpeople_wa",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 4792,
-      "name": "ContactPro_001",
-      "application_type": "shorttext"
-    },
-    {
-      "id": 27,
-      "name": "Avg. length of visit (minutes)",
-      "application_type": "special"
-    },
-    {
-      "id": 28,
-      "name": "Page views per day",
-      "application_type": "special"
-    },
-    {
-      "id": 29,
-      "name": "Days since last email sent",
-      "application_type": "special"
-    },
-    {
-      "id": 31,
-      "name": "Opt-In",
-      "application_type": "special"
-    },
-    {
-      "id": 32,
-      "name": "User status",
-      "application_type": "special"
-    },
-    {
-      "id": 33,
-      "name": "Contact source",
-      "application_type": "special"
-    },
-    {
-      "id": 34,
-      "name": "Contact form",
-      "application_type": "special"
-    },
-    {
-      "id": 35,
-      "name": "Registration Language",
-      "application_type": "singlechoice"
-    },
-    {
-      "id": 36,
-      "name": "Newsletter",
-      "application_type": "special"
-    },
-    {
-      "id": 47,
-      "name": "Email valid",
-      "application_type": "special"
-    },
-    {
-      "id": 48,
-      "name": "Date of first registration",
-      "application_type": "special"
-    }
-  ]
-};
-      // Function to create HTML table row for a single record
-    function createTableRow(fieldName, key, value) {
+    // Function to create HTML table row for a single record
+    function createTableRow(fieldName, value) {
       const tr = document.createElement("tr");
       const tdFieldName = document.createElement("td");
-      tdFieldName.innerHTML = `${fieldName}<br>${value}`;
+      const tdValue = document.createElement("td");
+      tdFieldName.textContent = fieldName;
+      tdValue.textContent = value;
       tr.appendChild(tdFieldName);
+      tr.appendChild(tdValue);
       return tr;
     }
 
-    // Function to create HTML table from the processed data
-    function createTable(data) {
+    // Function to parse SAPContactData and create table
+    function parseAndPopulateTable(jsonData) {
       const table = document.getElementById("dataTable");
+      const sapData = JSON.parse(jsonData.SAPContactData);
 
-      // Create table rows for each record in dataToProcess.results
-      data.forEach(record => {
-        Object.keys(record).forEach(key => {
-          if (key !== "id" && key !== "uid") {
-            const fieldInfo = fieldsDataset.data.find(field => field.id.toString() === key);
-            const fieldName = fieldInfo ? fieldInfo.name : key;
-            const value = record[key];
-            const row = createTableRow(fieldName, key, value);
-            table.appendChild(row);
-          }
-        });
-      });
+      // Loop through the parsed data and create table rows
+      for (const key in sapData) {
+        if (sapData.hasOwnProperty(key)) {
+          const value = sapData[key];
+          const row = createTableRow(key, value);
+          table.appendChild(row);
+        }
+      }
     }
 
-    // Create the HTML table using the dataToProcess.results
-    createTable(dataToProcess.data.result);
+    // Parse and populate the table
+    parseAndPopulateTable(jsonData);
   </script>
 </body>
 </html>
