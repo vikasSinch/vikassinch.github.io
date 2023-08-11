@@ -28,12 +28,12 @@
   </table>
 
   <script>
-    // The JSON data
-    const jsonData = {
-      "SAPContactData": "{\"id\":\"370791343\",\"uid\":\"Y8eV006lMz\",\"First Name\":\"Vsadfadsikas\",\"Last Name\":\"Mittasdfdasfal\",\"Email\":\"viasdfadskas.miasdfasdttal@nokia.com\",\"Date of Birth\":\"1975-01-09\",\"Gender\":\"Male\",\"Marital Status\":\"Married\",\"Children\":\"1\",\"Education\":\"College, College/University degree\",\"Title\":\"Dr.\",\"Address\":\"Lsadfsadinnoitustie 4\",\"City\":\"Espsdfdasfoo\",\"State\":\"Uussdfasdfimma\",\"ZIP Code\":\"0262343200\",\"Country or region\":\"UK\",\"Phone\":null,\"Fax\":null,\"Job Position\":\"Student\",\"Company\":\"Sincewerwh\",\"Department\":\"Information Technology\",\"Industry\":\"Financial Services\",\"Phone (office)\":null,\"Fax (office)\":null,\"Number of Employees\":\"1,000 - 2,499\",\"Annual Revenue (in 000 EUR)\":null,\"URL\":\"www.nokia.com\",\"Preferred email format\":null,\"Page views per day\":null,\"Days since last email sent\":null,\"Avg\":{\" length of visit (minutes)\":null}}"
-      // ... (other data)
+    const data = {
+      "SAPContactData": "{\"id\":\"370791343\",\"uid\":\"Y8eV006lMz\",\"First Name\":\"Vsadfadsikas\",\"Last Name\":\"Mittasdfdasfal\",\"Email\":\"viasdfadskas.miasdfasdttal@nokia.com\",\"Date of Birth\":\"1975-01-09\",\"Gender\":\"Male\",\"Marital Status\":\"Married\",\"Children\":\"1\",\"Education\":\"College, College/University degree\",\"Title\":\"Dr.\",\"Address\":\"Lsadfsadinnoitustie 4\",\"City\":\"Espsdfdasfoo\",\"State\":\"Uussdfasdfimma\",\"ZIP Code\":\"0262343200\",\"Country or region\":\"UK\",\"Phone\":null,\"Fax\":null,\"Job Position\":\"Student\",\"Company\":\"Sincewerwh\",\"Department\":\"Information Technology\",\"Industry\":\"Financial Services\",\"Phone (office)\":null,\"Fax (office)\":null,\"Number of Employees\":\"1,000 - 2,499\",\"Annual Revenue (in 000 EUR)\":null,\"URL\":\"www.nokia.com\",\"Preferred email format\":null,\"Page views per day\":null,\"Days since last email sent\":null,\"Avg\":{\" length of visit (minutes)\":null}}",
+      "NokiaCampaignData": "{}"
     };
-   const table = document.getElementById("dataTable");
+
+    const table = document.getElementById("dataTable");
 
     for (const key in data) {
       const row = table.insertRow();
