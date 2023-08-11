@@ -38,7 +38,7 @@
     function createTableRow(key, value) {
       const tr = document.createElement("tr");
       const td = document.createElement("td");
-      td.innerHTML = `<b>${key}</b><br><span class="grey-shade">${value}</span>`;
+      td.innerHTML = `<span class="grey-shade">${key}</span><br>${value}`;
       tr.appendChild(td);
       return tr;
     }
