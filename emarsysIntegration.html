@@ -59,9 +59,11 @@
             // Loop through the parsed data and create table rows
             for (const key in sapData) {
               if (sapData.hasOwnProperty(key)) {
-                const value = sapData[key];
-                const row = createTableRow(key, value);
-                table.appendChild(row);
+                 if (key !== "id" || key !=="uid"){
+                   const value = sapData[key];
+                   const row = createTableRow(key, value);
+                   table.appendChild(row);
+                 }
               }
             }
           }
