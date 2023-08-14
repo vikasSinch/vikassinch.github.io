@@ -43,20 +43,19 @@
       return tr;
     }
 
-    // Function to parse SAPContactData and create table
-    function parseAndPopulateTable(jsonData) {
-      const table = document.getElementById("dataTable");
-      const sapData = JSON.parse(jsonData.SAPContactData);
-
-      // Loop through the parsed data and create table rows
-      for (const key in sapData) {
-        if (sapData.hasOwnProperty(key)) {
-          const value = sapData[key];
-          const row = createTableRow(key, value);
-          table.appendChild(row);
-        }
-      }
-    }
+ function parseAndPopulateTable(contatData) {
+            const table = document.getElementById("dataTable");
+            const emarsysData = JSON.parse(contatData.EmarsysContactData);
+            for (const key in emarsysData) {
+              if (emarsysData.hasOwnProperty(key)) {
+                  const value = emarsysData[key];
+                 if (key !== "id" && key !=="uid" && value !== null){
+                   const row = createTableRow(key, value);
+                   table.appendChild(row);
+                 }
+              }
+            }
+          }
 
     // Parse and populate the table
     parseAndPopulateTable(jsonData);
