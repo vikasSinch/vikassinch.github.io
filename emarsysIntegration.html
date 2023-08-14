@@ -42,8 +42,7 @@
         window.parent.postMessage({type: "init", payload: false, id: "fn-1"}, "*");
       </script>
 
-      <script>
-        
+      <script>       
           function createTableRow(key, value) {
             const tr = document.createElement("tr");
             const td = document.createElement("td");
@@ -54,12 +53,10 @@
       
           function parseAndPopulateTable(contatData) {
             const table = document.getElementById("dataTable");
-            const sapData = JSON.parse(contatData.EmarsysContactData);
-      
-            // Loop through the parsed data and create table rows
-            for (const key in sapData) {
-              if (sapData.hasOwnProperty(key)) {
-                  const value = sapData[key];
+            const emarsysData = JSON.parse(contatData.EmarsysContactData);
+            for (const key in emarsysData) {
+              if (emarsysData.hasOwnProperty(key)) {
+                  const value = emarsysData[key];
                  if (key !== "id" && key !=="uid" && value !== null){
                    const row = createTableRow(key, value);
                    table.appendChild(row);
@@ -67,8 +64,6 @@
               }
             }
           }
-     </script>
-
-         
+     </script>        
    </body>
 </html>
