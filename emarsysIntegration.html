@@ -51,9 +51,9 @@
             return tr;
           }
       
-          function parseAndPopulateTable(contatData) {
+          function parseAndPopulateTable(contactData) {
             const table = document.getElementById("dataTable");
-            const emarsysData = JSON.parse(contatData.EmarsysContactData);
+            const emarsysData = contactData.customFields.EmarsysContactData;
             for (const key in emarsysData) {
               if (emarsysData.hasOwnProperty(key)) {
                   const value = emarsysData[key];
