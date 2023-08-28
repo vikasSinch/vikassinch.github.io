@@ -47,16 +47,21 @@
  	} else {
  		td.innerHTML = `<span class="grey-shade">${key}</span><br>${value}`;
  	}
-    if (value === null){
-      const hr = document.createElement('hr');
-      hr.style.width = '50%'; // Set the width as desired
-      hr.style.margin = '0 auto'; // Center the line
-      td.appendChild(hr);
-    }
-       
  	tr.appendChild(td);
  	return tr;
  }
+
+ function createHR() {
+     	const tr = document.createElement("tr");
+ 	const td = document.createElement("td");
+ 	 const hr = document.createElement('hr');
+      hr.style.width = '50%'; // Set the width as desired
+      hr.style.margin = '0 auto'; // Center the line
+      td.appendChild(hr);
+  tr.appendChild(td);
+ 	document.getElementById("dataTable").appendChild(tr);
+ }
+   
 
  function createHeader(header) {
  	const tr = document.createElement('tr');
@@ -81,7 +86,7 @@
  		}
  	}
    
-   createTableRow (null,null);
+   createHR();
     
  	const campaignData = contactData.customFields.SinchCampaignData;
  	if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
