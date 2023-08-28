@@ -47,6 +47,13 @@
  	} else {
  		td.innerHTML = `<span class="grey-shade">${key}</span><br>${value}`;
  	}
+    if (value === null){
+      const hr = document.createElement('hr');
+      hr.style.width = '50%'; // Set the width as desired
+      hr.style.margin = '0 auto'; // Center the line
+      td.appendChild(hr);
+    }
+       
  	tr.appendChild(td);
  	return tr;
  }
@@ -73,7 +80,9 @@
  			}
  		}
  	}
-
+   
+   
+    
  	const campaignData = contactData.customFields.SinchCampaignData;
  	if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
  		createHeader("Campaign Details");
