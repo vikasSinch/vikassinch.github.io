@@ -77,7 +77,7 @@
  	const campaignData = contactData.customFields.SinchCampaignData;
  	if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
  		createHeader("Campaign Details");
- 		for (const field of campaignData.item) {
+ 		for (const field of campaignData.fields.item) {
  			if (field !== null || field !== "") {
  				const row = createTableRow(null, field);
  				table.appendChild(row);
