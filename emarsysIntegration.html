@@ -23,7 +23,7 @@
       <body style="margin: 0;width:100%;height: 100%">
        <table id="dataTable">
        <tr>
-         <th>Customer Details</th>
+         <th></th>
        </tr>
      </table>
       
@@ -50,10 +50,20 @@
             tr.appendChild(td);
             return tr;
           }
+
+         function createHeader(header) {
+              const tr = document.createElement('tr');
+              const th = document.createElement('th');
+              th.textContent = header;
+              tr.appendChild(th);
+              table.appendChild(tr);
+         }
       
           function parseAndPopulateTable(contactData) {
             const table = document.getElementById("dataTable");
+            createHeader("Customer Details");
             const emarsysData = contactData.customFields.EmarsysContactData;
+ 
             for (const key in emarsysData) {
               if (emarsysData.hasOwnProperty(key)) {
                   const value = emarsysData[key];
@@ -63,6 +73,9 @@
                  }
               }
             }
+         
+            createHeader("Customer Details");
+            const campaignData = contactData.customFields.SinchCampaignData;
           }
      </script>        
    </body>
