@@ -69,28 +69,33 @@ function createHeader(header) {
 
 function parseAndPopulateTable(contactData) {
     const table = document.getElementById("dataTable");
-    createHeader("Customer Details");
     const emarsysData = contactData.customFields.EmarsysContactData;
-
-    for (const key in emarsysData) {
-        if (emarsysData.hasOwnProperty(key)) {
-            const value = emarsysData[key];
-            if (key !== "id" && key !== "uid" && value !== null) {
-                const row = createTableRow(key, value);
-                table.appendChild(row);
-            }
-        }
+    if (emarsysData) {
+       createHeader("SAP Emarsys Customer Details");
+       for (const key in emarsysData) {
+           if (emarsysData.hasOwnProperty(key)) {
+               const value = emarsysData[key];
+               if (key !== "id" && key !== "uid" && value !== null) {
+                   const row = createTableRow(key, value);
+                   table.appendChild(row);
+               }
+           }
+       }
+    }else{
+        createHeader("SAP Emarsys Customer Details not found");
     }
     createHR();
     const campaignData = contactData.customFields.SinchCampaignData;
     if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
-        createHeader("Campaign Details");
+        createHeader("Sinch Campaign Details");
         for (const field of campaignData.fields.item) {
             if (field !== null || field !== "") {
                 const row = createTableRow(null, field);
                 table.appendChild(row);
             }
         }
+    }else{
+        createHeader("Sinch Campaign Details not found: Empty Metadata");
     }
 }
 </script>        
