@@ -59,10 +59,11 @@ function createHR() {
     document.getElementById("dataTable").appendChild(tr);
 }
 
-function createHeader(header) {
+function createHeader(header, color = "black") {
     const tr = document.createElement('tr');
     const th = document.createElement('th');
     th.textContent = header;
+    th.style.color = color; 
     tr.appendChild(th);
     document.getElementById("dataTable").appendChild(tr);
 }
@@ -82,7 +83,7 @@ function parseAndPopulateTable(contactData) {
            }
        }
     }else{
-        createHeader("SAP Emarsys Customer Details not found");
+        createHeader("SAP Emarsys Customer Details not found", "Red");
     }
     createHR();
     const campaignData = contactData.customFields.SinchCampaignData;
@@ -95,7 +96,7 @@ function parseAndPopulateTable(contactData) {
             }
         }
     }else{
-        createHeader("Sinch Campaign Details not found: Empty Metadata");
+        createHeader("Sinch Campaign Details not found: Empty Metadata", "Red");
     }
 }
 </script>        
