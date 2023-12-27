@@ -88,7 +88,7 @@ function parseAndPopulateTable(contactData) {
     const campaignData = contactData.customFields.SinchCampaignData;
     if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
         createHeader("Sinch Campaign Details");
-        for (const field of campaignData.fields.item) {
+        for (const field of campaignData.fields.item.item) {
             if (field !== null || field !== "") {
                 const row = createTableRow(null, field);
                 table.appendChild(row);
