@@ -116,8 +116,8 @@
       }
 
 	function handleTest() {
-            var phone = getElement("phone").value;
-            var testaction = getElement("test_action").value;
+            var phone = document.getElementById("phone").value;
+            var testaction = document.getElementById("test_action").value;
             if (testaction == "incoming_call") {
                     incomingCall(phone);
            } 
