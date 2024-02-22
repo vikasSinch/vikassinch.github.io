@@ -100,7 +100,7 @@
         if (callerId) {
          openFormQuery = {
 		entity: "interaction",
-		query: "sys_id=-1&sysparm_query=u_phone=" + encodeURIComponent(callerId) + "^direction=" + "Incoming" + "^interactionId=" + "1234" + "^u_queue_name=" + "queueName"
+		query: "sys_id=-1&sysparm_query=u_phone=" + encodeURIComponent(callerId) 
 	};
 	openFrameAPI.openServiceNowForm(openFormQuery);
         }
