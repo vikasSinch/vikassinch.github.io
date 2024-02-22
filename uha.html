@@ -111,10 +111,8 @@
       /*
       * Incoming call handler that take caller id and case number
       */
-      function incomingCall(callerId, caseNumber) {
-
-
-      var openFormQuery = "";
+      function incomingCall(callerId) {
+      	var openFormQuery = "";
         if (callerId) {
          openFormQuery = {
 		entity: "interaction",
@@ -123,6 +121,14 @@
 	openFrameAPI.openServiceNowForm(openFormQuery);
         }
         openFrameAPI.show();
+      }
+
+	function handleTest() {
+            var phone = getElement("phone").value;
+            var testaction = getElement("test_action").value;
+            if (testaction == "incoming_call") {
+                    incomingCall(phone);
+           } 
       }
     </script>	
   </body>
