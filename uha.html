@@ -104,7 +104,7 @@
       * Handle init success
       */
       function initSuccess(snConfig) {
-        openFrameAPI.log(openFrameAPI.LOG_LEVELS.DEBUG, "OpenFrame init successful");
+        console.log("OpenFrame init successful");
                 
         //register for communication event (outgoing call)
         openFrameAPI.subscribe(openFrameAPI.EVENTS.COMMUNICATION_EVENT, handleCommunicationEvent);
@@ -117,7 +117,7 @@
       * Handle init failure
       */
       function initFailure(snConfig) {
-        openFrameAPI.log(openFrameAPI.LOG_LEVELS.ERROR, "OpenFrame init failed..");
+        console.log("OpenFrame init failed..");
       }
             
       /*
