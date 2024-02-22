@@ -131,7 +131,7 @@
                 
           // show the frame 
           openFrameAPI.show();
-        	alert ("outgoing call no" + data.metaData.phoneNumber)
+        	alert ("outgoing call no" + context.data.metaData.phoneNumber)
         
         }
       }
@@ -179,7 +179,7 @@
         if (callerId) {
          openFormQuery = {
 		entity: "interaction",
-		query: "sys_id=-1&sysparm_query=u_phone=" + phone + "^direction=" + direction + "^interactionId=" + oInteraction.id + "^u_queue_name=" + queueName
+		query: "sys_id=-1&sysparm_query=u_phone=" + phone + "^direction=" + "Incoming" + "^interactionId=" + "1234" + "^u_queue_name=" + "queueName"
 	};
 	openFrameAPI.openServiceNowForm(openFormQuery);
         }
