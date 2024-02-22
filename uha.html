@@ -131,37 +131,8 @@
                 
           // show the frame 
           openFrameAPI.show();
-                
-          // Set title, mute icon and show the frame,
-          var phoneNo = context.data.phoneNumber;
-          openFrameAPI.setTitle("Outgoing");
-          openFrameAPI.setSubtitle(phoneNo);
-      
-          //Show mute icon
-          var iconList = [ {imageURL:"/images/com.sn_open_frame/mute.png", imageTitle:"mute", id:100} ];
-          openFrameAPI.setIcons(iconList);
-      
-          //actual functionality for outgoing call goes here....
-          getElement("message").innerHTML = "Implementation for outgoing call goes here...."
-      
-          //show contact
-          var el = getElement("contact_link");
-          el.setAttribute("data-id", context.data.caller[0].name_sys_id);
-          el.innerHTML = context.data.caller[0].name;
-          getElement("contact_id").style.display = "block";
-                    
-          //show account
-          el = getElement("account_link");
-          el.setAttribute("data-id", context.data.caller[0].company_sys_id);
-          el.innerHTML = context.data.caller[0].company
-          getElement("account_id").style.display = "block";
-      
-          //show case link
-          var el = getElement("case_link");
-          el.setAttribute("data-id", context.data.cases[0].case_id);
-          el.innerHTML = context.data.cases[0].case_number;
-          getElement("case_id").style.display = "block";
-      
+        	alert ("outgoing call no" + data.metaData.phoneNumber)
+        
         }
       }
             
@@ -203,75 +174,16 @@
       */
       function incomingCall(callerId, caseNumber) {
 
-        //Set title
-        openFrameAPI.setTitle("Incoming");
-        openFrameAPI.setSubtitle(callerId);
-                
-        //Set header icon
-        var iconList = [ {imageURL:"/images/com.sn_open_frame/mute.png", imageTitle:"mute", id:100} ];
-        openFrameAPI.setIcons(iconList);
-
-        //get and show contact and account info
+          //get and show contact and account info
+	      var openFormQuery = "";
         if (callerId) {
-          var queryDetails = { 
-           entity: "customer_contact", 
-           query: "phone="+callerId
-          };
-                    
-          openFrameAPI.query(queryDetails,
-            /* success handler */
-            function(results) {
-              if (results && results.length > 0) {
-                var contact = results[0];
-                //show contact
-                var el = getElement("contact_link");
-                el.setAttribute("data-id", contact["sys_id"].display_value);
-                el.innerHTML = contact["name"].display_value;
-                getElement("contact_id").style.display = "block";
-      
-                //show account
-                el = getElement("account_link");
-                el.setAttribute("data-id", contact["account"].value);
-                el.innerHTML = contact["account"].display_value;
-                getElement("account_id").style.display = "block";
-              } else {
-                console.log("contact query no results..");
-              }
-            }, 
-            /* failure handler */
-            function(results){
-              console.log("contact query failed..");
-            });
+         openFormQuery = {
+		entity: "interaction",
+		query: "sys_id=-1&sysparm_query=u_phone=" + phone + "^direction=" + direction + "^interactionId=" + oInteraction.id + "^u_queue_name=" + queueName
+	};
+	openFrameAPI.openServiceNowForm(openFormQuery);
         }
 
-        //get and show case info
-        if (caseNumber) {
-          var queryDetails = { 
-            entity: "sn_customerservice_case", 
-            query: "number="+caseNumber
-          };
-          openFrameAPI.query(queryDetails,
-            /* query success */
-            function(results) {
-              if (results && results.length > 0) {
-                var cs = results[0];
-                //show case link
-                var el = getElement("case_link");
-                el.setAttribute("data-id", cs["sys_id"].display_value);
-                el.innerHTML = cs["number"].display_value;
-                getElement("case_id").style.display = "block";
-              } else {
-                console.log("case query no results");
-              }
-            }, 
-            /* query failed */
-          function(results) {
-            console.log("case query failed..");
-          });                
-        }
-
-        //TODO: Implement incoming call screen here
-        getElement("message").innerHTML = "Implementation for incoming call...."
       
         //Show OpenFrame
         openFrameAPI.show();
