@@ -37,11 +37,7 @@
     <!-- var url = scope.config.url -->
     <!-- MAIN content-->
     <div style="height:150px; border: 0px solid blue;margin:10px;">
-      <div id="message"></div>
-      <div id="contact_id" style="display:none;">Contact: <a href="#" id="contact_link" data-id="" data-name="customer_contact" onclick="refreshParent(this, 'customer_contact')"></a></div>
-      <div id="account_id" style="display:none;">Account: <a href="#" id="account_link" data-id="" data-name="customer_account" onclick="refreshParent(this)"></a></div>
-      <div id="case_id"    style="display:none;">Case:    <a href="#" id="case_link"    data-id="" data-name="sn_customerservice_case" onclick="refreshParent(this)"></a></div>
-    </div>
+    
     <!-- MAIN content end -->
 		
     <!-- TEST content-->
@@ -86,13 +82,7 @@
     <!-- TEST content end-->
 		
     <script type="text/javascript">
-            
-      //openFrameAPI object defined at openFrame.js
-
-      /*
-      * OpenFrame Sample Usages
-      */
-             
+ 
       // config settings - we are configuring it within
       // servicenow, sn_open_frame_configuration.list
       var config = {};
@@ -108,9 +98,6 @@
                 
         //register for communication event (outgoing call)
         openFrameAPI.subscribe(openFrameAPI.EVENTS.COMMUNICATION_EVENT, handleCommunicationEvent);
-    
-        //register for header icon clicks
-        openFrameAPI.subscribe(openFrameAPI.EVENTS.HEADER_ICON_CLICKED, handleHeaderIconClick);
       }
 
       /*
@@ -137,39 +124,6 @@
       }
             
       /*
-      * OpenFrame header icon click callback
-      */
-      function handleHeaderIconClick(context) {
-        if(context.id==100) {
-
-          //TODO: implement actual functionality for mute 
-
-          //show unmute icon
-          var iconList = [ {imageURL:"/images/com.sn_open_frame/mute_active.png", imageTitle:"unmute", id:110} ];
-          openFrameAPI.setIcons(iconList);
-        } else if(context.id==110) {
-
-          //TODO: implement actual functionality for un mute 
-
-          //show mute icon
-          var iconList = [ {imageURL:"/images/com.sn_open_frame/mute.png", imageTitle:"mute", id:100} ];
-          openFrameAPI.setIcons(iconList);
-        }
-      }
-            
-      //TODO: not implemented
-      function openFrameBeforeDestroy(event, context) {
-        // do all cleanup over here
-        // close communication
-      }
-
-      //TODO: not implemented
-      function frameClosed(event, context) {
-        // event OpenFrame close called take your on action
-        // close connection
-      }
-            
-      /*
       * Incoming call handler that take caller id and case number
       */
       function incomingCall(callerId, caseNumber) {
@@ -179,58 +133,16 @@
         if (callerId) {
          openFormQuery = {
 		entity: "interaction",
-		query: "sys_id=-1&sysparm_query=u_phone=" + phone + "^direction=" + "Incoming" + "^interactionId=" + "1234" + "^u_queue_name=" + "queueName"
+		query: "sys_id=-1&sysparm_query=u_phone=" + callerId + "^direction=" + "Incoming" + "^interactionId=" + "1234" + "^u_queue_name=" + "queueName"
 	};
 	openFrameAPI.openServiceNowForm(openFormQuery);
         }
 
-      
-        //Show OpenFrame
+
         openFrameAPI.show();
       }
             
-      // ------------------------  End of core usage -------
-            
-      // ----------------- Helper methods for Testing  -----
-      function refreshParent(element) {
-            var name = element.getAttribute("data-name");
-            var id = element.getAttribute("data-id");
-            var query = "sys_id="+id+'&sysparm_view=case';
-            openFrameAPI.openServiceNowForm({entity:name, query:query});
-      }
-            
-      function clearTest() {
-            //clear title and icons
-            openFrameAPI.setIcons([]);
-            openFrameAPI.setTitle(" ");
-            openFrameAPI.setSubtitle(" ");
-                
-            getElement("message").innerHTML = "";
-            getElement("contact_id").style.display = "none";
-            getElement("account_id").style.display = "none";
-            getElement("case_id").style.display = "none";
-            getElement("phone").value = "";
-            getElement("case_number").value = "";
-      }
-            
-      function handleTest() {
-            var phone = getElement("phone").value;
-            var case_no = getElement("case_number").value;
-            var testaction = getElement("test_action").value;
-            if (testaction == "incoming_call") {
-                    getElement("contact_id").style.display = "none";
-                    getElement("account_id").style.display = "none";
-                    getElement("case_id").style.display = "none";
-                    incomingCall(phone, case_no);
-            } 
-      }
-            
-      function getElement(id) {
-            return document.getElementById(id);
-      }
-
-      // ----------------- End of Test helpers -----------
-
+     
     </script>	
   </body>
 </html>
