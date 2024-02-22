@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://dev207637.service-now.com/scripts/openframe/1.0.6/openFrameAPI.min.js"></script>
+    <style>
+      body {font-family: Arial;font-size: 13px; color: rgb(52, 61, 71);}
+      div {margin-bottom:5px;}
+      
+      .form-group {
+        margin-bottom: 8px;
+        display:block;
+        clear: both;
+      }            
+      .form-group:after{
+        clear: both;
+      }
+      .form_control { 
+        border: 1px solid rgb(189, 192, 196); 
+        border-radius: 3px;
+        position: relative;
+        height: 25px;margin-left: 5px;
+      }
+      input:focus {
+        border-color: blue;
+      }
+            
+      .control-label {
+        padding-top: 7px;
+        text-align: right;
+        width:50%
+      }
+    </style>
+  </head>
+	
+  <body>
+    <div style="height: 175px;border-top: 0px solid blue;">
+      <p style="margin-top:2px;margin-bottom: 5px;">Incoming call test..</p>
+
+      <div class="form-group">
+	<div  style="float: left;" class="control-label">
+	  <lable>Action :</lable>
+	</div>
+	<div style="float: left;width:50%;">
+          <select name="test_action" id="test_action" class="form_control">
+            <option value="incoming_call">Incoming Call</option>
+          </select>
+	</div>
+      </div>
+      <div class="form-group">
+	<div  style="float: left;" class="control-label">
+	  <lable>Phone number:</lable>
+	</div>
+	<div style="float: left;width:50%;">
+	  <input class="form_control" type="text" name="phone" id="phone"/>
+	</div>
+      </div>
+     
+			
+      <div class="form-group">
+	<div  style="float: right;" class="control-label">
+	  <button class="form_control" type="button" onclick="handleTest()">Test</button>
+	</div>
+      </div>
+			
+    </div>
+		
+    <script type="text/javascript">
+      var config = {};
+      openFrameAPI.init(config, initSuccess, initFailure);
+
+      /*
+      * Handle init success
+      */
+      function initSuccess(snConfig) {
+        console.log("OpenFrame init successful");
+        openFrameAPI.subscribe(openFrameAPI.EVENTS.COMMUNICATION_EVENT, handleCommunicationEvent);
+      }
+
+      /*
+      * Handle init failure
+      */
+      function initFailure(snConfig) {
+        console.log("OpenFrame init failed..");
+      }
+            
+      function handleCommunicationEvent(context) {            
+        if(context.type == "OUTGOING_CALL") {
+          // show the frame 
+          openFrameAPI.show();
+        	alert ("outgoing call no" + context.data.metaData.phoneNumber)
+        }
+      }
+            
+      /*
+      * Incoming call handler that take caller id and case number
+      */
+      function incomingCall(callerId) {
+      	var openFormQuery = "";
+        if (callerId) {
+         openFormQuery = {
+		entity: "interaction",
+		query: "sys_id=-1&sysparm_query=u_phone=" + encodeURIComponent(callerId) 
+	};
+	openFrameAPI.openServiceNowForm(openFormQuery);
+        }
+        openFrameAPI.show();
+      }
+
+	function handleTest() {
+            var phone = document.getElementById("phone").value;
+            var testaction = document.getElementById("test_action").value;
+            if (testaction == "incoming_call") {
+                    incomingCall(phone);
+           } 
+      }
+    </script>	
+  </body>
+</html>
