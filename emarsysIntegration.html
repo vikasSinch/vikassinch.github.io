@@ -89,12 +89,20 @@ function parseAndPopulateTable(contactData) {
     const campaignData = contactData.customFields.SinchCampaignData;
     if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
         createHeader("Sinch Campaign Details");
+       
+      for (const key in campaignData) {
+        if (campaignData.hasOwnProperty(key)) { 
+            const row = createTableRow(key, obj[key]);
+            table.appendChild(row);
+        }
+      }
+       /*
         for (const field of campaignData.fields.item.item) {
             if (field !== null || field !== "") {
                 const row = createTableRow(null, field);
                 table.appendChild(row);
             }
-        }
+        }*/
     }else{
         createHeader("Sinch Campaign Details not found: Empty Metadata", "Red");
     }
