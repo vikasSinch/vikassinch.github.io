@@ -15,7 +15,7 @@ function submitAndFormatPayload(payload) {
         var jsonObj = JSON.parse(payload);
         var formattedJson = JSON.stringify(jsonObj, null, 4);
         document.getElementById('jsonInput').value = formattedJson;
-        sendPayload(formattedJson);
+        sendPayload(jsonObj);
         displayPayload(formattedJson, payloadsList);
     } catch (jsonError) {
         try {
@@ -36,7 +36,7 @@ function submitAndFormatPayload(payload) {
 
 function sendPayload(payload) {
     window.parent.postMessage(payload, "*"); // Replace '*' with your domain
-    alert('Payload sent!');
+   // alert('Payload sent!');
 }
 
 function displayPayload(payload, listElement) {
