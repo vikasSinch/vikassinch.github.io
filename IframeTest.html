@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C4C Payload Tester</title>
+    <script src="script1.js" defer></script>
+</head>
+<body>
+    <h1>C4C Payload Tester</h1>
+    <textarea id="jsonInput" rows="20" cols="100" placeholder="Enter JSON payload here"></textarea><br>
+    <button onclick="submitAndFormatPayload(document.getElementById('jsonInput').value)">Submit</button>
+    <div id="payloadsList" style="margin-top: 20px;">
+        <h2>Sent Payloads</h2>
+        <ul id="sentPayloads"></ul>
+    </div>
+</body>
+</html>
