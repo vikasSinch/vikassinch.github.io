@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" style="width:100%;height: 100%;">
+   <head>
+      <meta charset=" UTF-8">
+      <title>ChatGPT Email analysis</title>
+       <style>
+       table {
+         border-collapse: collapse;
+         width: 100%;
+       }
+       th, td {
+         border: none;
+         padding: 8px;
+         text-align: left;
+         font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+         }
+       .grey-shade {
+         color: #888888;
+       }
+     </style>
+   </head>
+      <body style="margin: 0;width:100%;height: 100%">
+       <table id="dataTable"></table>
 
+
+<script>
+  var Interaction;
+  var _onMessage = function(oEvent) {
+     if (oEvent.data.type === "response" && oEvent.data.payload.result !== "error") {
+      var data = oEvent.data.payload.value;
+         if (data.originator)
+          //  alert(JSON.stringify(data.attached_data))
+           parseAndPopulateTable(data.attached_data);
+         Interaction = data;
+         }
+  }
+  window.addEventListener("message", _onMessage);
+  window.parent.postMessage({type: "init", payload: false, id: "fn-1"}, "*");
+
+
+function parseAndPopulateTable(contactData) {
+    alert (contactData);
+}
+</script>        
+</body>
+</html>
