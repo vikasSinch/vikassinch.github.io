@@ -40,7 +40,8 @@
 
 
       function parseAndPopulateTable(contactData) {
-         contactData = contactData["ChatGPT-Response"];
+         contactData = JSON.parse(contactData["ChatGPT-Response"]);
+         
          var table = document.getElementById("dataTable");
 
          // Create table header
