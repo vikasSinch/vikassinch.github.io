@@ -40,7 +40,11 @@
 
 
       function parseAndPopulateTable(contactData) {
-         contactData = JSON.parse(contactData["ChatGPT-Response"]);
+          contactData = contactData["ChatGPT-Response"];
+
+         if (typeof contactData === 'string') {
+          contactData = JSON.parse(contactData);
+         }
          
          var table = document.getElementById("dataTable");
 
