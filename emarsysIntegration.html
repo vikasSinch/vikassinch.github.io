@@ -98,23 +98,26 @@ function parseAndPopulateTable(contactData) {
             table.appendChild(row);
          }
       }
-   }else{
-        createHeader("SAP Emarsys Customer Details not found", "Red");
-    }
-    createHR();
-    const campaignData = contactData.customFields.SinchCampaignData;
-    if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
-        createHeader("Sinch Campaign Details");
-       
+   }else {
+      createHeader("SAP Emarsys Customer Details not found", "Red");
+   }
+
+   createHR();
+
+   const campaignData = contactData.customFields.SinchCampaignData;
+   if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
+      createHeader("Sinch Campaign Details");
+
       for (const key in campaignData) {
-        if (campaignData.hasOwnProperty(key)) { 
+         if (campaignData.hasOwnProperty(key)) {
             const row = createTableRow(key, campaignData[key]);
             table.appendChild(row);
-        }
+         }
       }
-    }else{
-    //    createHeader("Sinch Campaign Details not found: Empty Metadata", "Red");
+   } else {
+      // createHeader("Sinch Campaign Details not found: Empty Metadata", "Red");
+   }
 }
-</script>        
-</body>
+   </script>        
+   </body>
 </html>
