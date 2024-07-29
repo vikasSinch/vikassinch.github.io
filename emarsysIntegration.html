@@ -102,10 +102,9 @@ function parseAndPopulateTable(contactData) {
       createHeader("SAP Emarsys Customer Details not found", "Red");
    }
 
-   createHR();
-
    const campaignData = contactData.customFields.SinchCampaignData;
    if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
+      createHR();
       createHeader("Sinch Campaign Details");
 
       for (const key in campaignData) {
