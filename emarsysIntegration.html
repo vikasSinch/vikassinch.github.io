@@ -18,6 +18,9 @@
        .grey-shade {
          color: #888888;
        }
+          .spacer {
+            height: 20px; /* Adjust the height as needed */
+         }
      </style>
    </head>
       <body style="margin: 0;width:100%;height: 100%">
@@ -98,6 +101,13 @@ function parseAndPopulateTable(contactData) {
             table.appendChild(row);
          }
       }
+      
+      // Add a spacer row after the emarsysData rows are done
+      const spacerRow = document.createElement("tr");
+      const spacerCell = document.createElement("td");
+      spacerCell.className = "spacer";
+      spacerRow.appendChild(spacerCell);
+      table.appendChild(spacerRow);
    }else {
       createHeader("SAP Emarsys Customer Details not found", "Red");
    }
