@@ -71,18 +71,34 @@ function createHeader(header, color = "black") {
 function parseAndPopulateTable(contactData) {
     const table = document.getElementById("dataTable");
     const emarsysData = contactData.customFields.EmarsysContactData;
-    if (emarsysData) {
-       createHeader("SAP Emarsys Customer Details");
-       for (const key in emarsysData) {
-           if (emarsysData.hasOwnProperty(key)) {
-               const value = emarsysData[key];
-               if (key !== "id" && key !== "uid" && value !== null) {
-                   const row = createTableRow(key, value);
-                   table.appendChild(row);
-               }
-           }
-       }
-    }else{
+   if (emarsysData) {
+  //    createHeader("SAP Emarsys Customer Details");
+
+      const orderOfKeys = [
+         'First_Name', 'Last_Name', 'Address', 'City', 'State',
+         'ZIP_Code', 'Country_or_region', 'Email', 'Mobile',
+         'Date_of_Birth', 'Gender', 'Marital_Status', 'Opt-in',
+         'Registration_language'
+      ];
+      const usedKeys = new Set();
+
+      // First, create rows based on the orderOfKeys
+      for (const key of orderOfKeys) {
+         if (emarsysData.hasOwnProperty(key)) {
+            const row = createTableRow(key, emarsysData[key]);
+            table.appendChild(row);
+            usedKeys.add(key); // Mark this key as used
+         }
+      }
+
+      // Then, create rows for the remaining keys in emarsysData
+      for (const key in emarsysData) {
+         if (emarsysData.hasOwnProperty(key) && !usedKeys.has(key)) {
+            const row = createTableRow(key, emarsysData[key]);
+            table.appendChild(row);
+         }
+      }
+   }else{
         createHeader("SAP Emarsys Customer Details not found", "Red");
     }
     createHR();
@@ -97,8 +113,7 @@ function parseAndPopulateTable(contactData) {
         }
       }
     }else{
-        createHeader("Sinch Campaign Details not found: Empty Metadata", "Red");
-    }
+    //    createHeader("Sinch Campaign Details not found: Empty Metadata", "Red");
 }
 </script>        
 </body>
