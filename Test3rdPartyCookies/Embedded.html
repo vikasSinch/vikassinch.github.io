@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍪</text></svg>">
+
+    <title>Storage Access API Demo</title>
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content" role="main">
+        <h1 class="title">Storage Access API Demo!</h1>
+        <div class="instructions">
+          <h2>Using this demo</h2>
+          <ul>
+            <li>Ensure third-party cookies are turned off:
+              <ul>
+                <li>For Chrome this is done by setting: <code>chrome://flags/#test-third-party-cookie-phaseout</code> and restarting your Chrome browser to make that flag take effect.</li>
+                <li>For Firefox and Safari this is already the default.</li>
+              </ul>
+            </li>
+            <li>Start at <a href="https://storage-access-api-demo.glitch.me/" target="_blank">this link</a> and set a cookie value for the <code>foo</code> cookie.</li>
+            <li>
+              Use first framed content below (using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API" target="_blank">Storage Access API</a>s
+              - accept prompts if needed) to confirm access to cookies, despite 3rd party cookies being turned off
+              (note: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1865749">Firefox sometimes requires a page refresh first time it's used</a>).
+            </li>
+            <li>
+              Use the second iframed content below (also using using Storage Access APIs) to confirm access without an additional prompt being needed,
+              assuming you accepted the prompts already (note: Safari does prompt again unless page is reloaded).
+            </li>
+            <li>
+              Use third framed content below (without Storage Access APIs) to confirm no access to same cookies
+              (note: Safari currently allows access as
+              <a href="https://github.com/privacycg/storage-access/pull/141">previously SAA worked at a page level and not a per-frame level</a>).
+            </li>
+            <li>Update cookie value in other tab has much as you like and re-read the new cookies here.</li>
+            <li>You can refresh the page and cookies should reload without re-prompting being required.</li>
+            <li>Navigate to <a href="./" target="_blank">the page in a fresh browser tab</a>. This should remove access but automatically get access again without a prompt (Chrome and Firefox) or require a prompt (Safari).</li>
+            <li>You can reset the permission in the URL bar in Chrome (click the lock icon) and Firefox (click the settings icon next to the lock), or Safari (Settings-&gt;Privacy-&gt;Manage Website Data).</li>
+            <li>Try <a href="page2.html">navigating to this second page on this site</a> to see if permissions follow.</li>
+          </ul>
+        </div>
+        
+        <iframe sandbox="allow-storage-access-by-user-activation
+                         allow-scripts
+                         allow-same-origin"
+                src="https://storage-access-api-demo.glitch.me/complexCookies.html" width="100%" height="200px"></iframe>
+        <iframe sandbox="allow-storage-access-by-user-activation
+                         allow-scripts
+                         allow-same-origin"
+                 src="https://storage-access-api-demo.glitch.me/complexCookies2.html" width="100%" height="200px"></iframe>
+                
+<!--         <iframe src="https://storage-access-api-demo.glitch.me/complexCookies.html" width="100%" height="200px"></iframe>
+        <iframe src="https://storage-access-api-demo.glitch.me/complexCookies2.html" width="100%" height="200px"></iframe> -->
+        <iframe src="https://storage-access-api-demo.glitch.me/simpleCookies.html" width="100%" height="200px"></iframe>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <div class="links"></div>
+      <a
+        class="btn--remix"
+        target="_top"
+        href="https://glitch.com/edit/#!/remix/glitch-hello-website"
+      >
+        <img
+          src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
+          alt=""
+        />
+        Remix on Glitch
+      </a>
+    </footer>
+  </body>
+</html>
