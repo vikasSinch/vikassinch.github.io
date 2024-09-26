@@ -73,7 +73,15 @@ function createHeader(header, color = "black") {
 
 function parseAndPopulateTable(contactData) {
     const table = document.getElementById("dataTable");
-    const emarsysData = contactData.customFields.EmarsysContactData;
+   // const emarsysData = contactData.customFields.EmarsysContactData;
+   let emarsysData = null;
+  
+   if (contactData.customFields && contactData.customFields.EmarsysContactData) {
+       emarsysData = contactData.customFields.EmarsysContactData;
+   } else if (contactData.EmarsysContactData) {
+       emarsysData = contactData.EmarsysContactData;
+   } 
+   
    if (emarsysData) {
   //    createHeader("SAP Emarsys Customer Details");
 
@@ -117,7 +125,15 @@ function parseAndPopulateTable(contactData) {
       createHeader("SAP Emarsys Customer Details not found", "Red");
    }
 
-   const campaignData = contactData.customFields.SinchCampaignData;
+   //const campaignData = contactData.customFields.SinchCampaignData;
+
+   let sinchCampaignData = null;
+   if (contactData.customFields && contactData.customFields.SinchCampaignData) {
+       sinchCampaignData = contactData.customFields.SinchCampaignData;
+   } else if (contactData.SinchCampaignData) {
+       sinchCampaignData = contactData.SinchCampaignData;
+   } 
+
    if (campaignData !== undefined && campaignData !== null && campaignData !== "") {
       createHR();
       createHeader("Sinch Campaign Details");
