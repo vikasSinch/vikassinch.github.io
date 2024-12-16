@@ -71,6 +71,28 @@ function createHeader(header, color = "black") {
     document.getElementById("dataTable").appendChild(tr);
 }
 
+function parseJson(input) {
+  try {
+    // Check if input is already an object
+    if (typeof input === "object" && input !== null) {
+      return input; // Return it as-is
+    }
+    
+    // First parse attempt
+    let parsed = JSON.parse(input);
+    
+    // Check if the result is a string (indicating double stringification)
+    if (typeof parsed === "string") {
+      // Parse the string again
+      parsed = JSON.parse(parsed);
+    }
+    
+    return parsed; // Return the final parsed JSON object
+  } catch (error) {
+    throw new Error("Invalid input: Unable to parse.");
+  }
+}
+   
 function parseAndPopulateTable(contactData) {
     const table = document.getElementById("dataTable");
    // const emarsysData = contactData.customFields.EmarsysContactData;
@@ -84,7 +106,9 @@ function parseAndPopulateTable(contactData) {
    
    if (emarsysData) {
   //    createHeader("SAP Emarsys Customer Details");
-
+      
+      emarsysData = parseJsonString(emarsysData)
+      
       const orderOfKeys = [
          'First_Name', 'Last_Name', 'Address', 'City', 'State',
          'ZIP_Code', 'Country_or_region', 'Email', 'Mobile',
