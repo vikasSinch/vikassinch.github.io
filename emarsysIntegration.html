@@ -133,7 +133,7 @@ function parseAndPopulateTable(contactData) {
 
       // Then, create rows for the remaining keys in emarsysData
       for (const key in emarsysData) {
-         if (emarsysData.hasOwnProperty(key) && !usedKeys.has(key)) {
+         if (emarsysData.hasOwnProperty(key) && !usedKeys.has(key) && emarsysData[key] !== null) {
             const row = createTableRow(key, emarsysData[key]);
             table.appendChild(row);
          }
