@@ -71,7 +71,7 @@ function createHeader(header, color = "black") {
     document.getElementById("dataTable").appendChild(tr);
 }
 
-function parseJson(input) {
+function parseJsonString(input) {
   try {
     // Check if input is already an object
     if (typeof input === "object" && input !== null) {
