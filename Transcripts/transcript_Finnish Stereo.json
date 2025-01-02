@@ -1,0 +1,1804 @@
+{
+  "metadata": {
+    "transaction_key": "deprecated",
+    "request_id": "1077ef76-f04b-4c5e-9a60-4b681ce255ed",
+    "sha256": "da9299d33ef8cb628f0dd385bef6b92acc5dae0d1e07a38069dab0776f82ca9d",
+    "created": "2025-01-02T09:48:22.612Z",
+    "duration": 85.35881,
+    "channels": 2,
+    "models": [
+      "3ce77030-6958-4976-b33b-709089f7c5bb"
+    ],
+    "model_info": {
+      "3ce77030-6958-4976-b33b-709089f7c5bb": {
+        "name": "2-general-nova",
+        "version": "2024-01-28.15531",
+        "arch": "nova-2"
+      }
+    },
+    "warnings": [
+      {
+        "parameter": "sentiment",
+        "type": "unsupported_language",
+        "message": "Sentiment is only supported for English."
+      }
+    ]
+  },
+  "results": {
+    "channels": [
+      {
+        "alternatives": [
+          {
+            "transcript": "Lomahotelli hyvää päivää! Millehän päivälle? Eli [DATE_1]. Meiltä löytyy erittäin hyvin huoneita, koska eihän tähän aikaan ihmiset matkustele. On bräntää ja kuraa ja kaikkea. Mutta jos minä varaan teille Haluatteko te yhden tai kahden hengen huoneen? No hyvä. Yhden hengen huone, niin varaan teille sellaisen sitten huomiselle. Ja maksatte varmaan sitten hotellilla vasta. No hyvä. Hienoa. [LOCATION_ADDRESS_2], hyvä. Meillä ei [LOCATION_1] ole koskaan aikaisemmin ketään ollutkaan. Tervetuloa. Hyvä.",
+            "confidence": 0.9902344,
+            "words": [
+              {
+                "word": "lomahotelli",
+                "start": 1.12,
+                "end": 1.52,
+                "confidence": 0.9607747,
+                "speaker": 0,
+                "speaker_confidence": 0.47315663,
+                "punctuated_word": "Lomahotelli",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hyvää",
+                "start": 1.52,
+                "end": 1.8399999,
+                "confidence": 0.9375,
+                "speaker": 0,
+                "speaker_confidence": 0.47315663,
+                "punctuated_word": "hyvää",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "päivää",
+                "start": 1.8399999,
+                "end": 2.34,
+                "confidence": 0.9538574,
+                "speaker": 0,
+                "speaker_confidence": 0.47315663,
+                "punctuated_word": "päivää!",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "millehän",
+                "start": 12.559999,
+                "end": 12.639999,
+                "confidence": 0.9900716,
+                "speaker": 0,
+                "speaker_confidence": 0.37029195,
+                "punctuated_word": "Millehän",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "päivälle",
+                "start": 12.639999,
+                "end": 13.139999,
+                "confidence": 0.9123535,
+                "speaker": 0,
+                "speaker_confidence": 0.37029195,
+                "punctuated_word": "päivälle?",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "eli",
+                "start": 17.065,
+                "end": 17.305,
+                "confidence": 0.99609375,
+                "speaker": 0,
+                "speaker_confidence": 0.35915905,
+                "punctuated_word": "Eli",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "[DATE_1]",
+                "start": 17.305,
+                "end": 17.805,
+                "confidence": 0.6805013,
+                "speaker": 0,
+                "speaker_confidence": 0.35915905,
+                "punctuated_word": "[DATE_1].",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "meiltä",
+                "start": 23.945,
+                "end": 24.185001,
+                "confidence": 0.94628906,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "Meiltä",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "löytyy",
+                "start": 24.185001,
+                "end": 24.685001,
+                "confidence": 0.99902344,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "löytyy",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "erittäin",
+                "start": 24.744999,
+                "end": 25.064999,
+                "confidence": 0.9980469,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "erittäin",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hyvin",
+                "start": 25.064999,
+                "end": 25.385,
+                "confidence": 0.9941406,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "hyvin",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "huoneita",
+                "start": 25.385,
+                "end": 25.865,
+                "confidence": 0.98844403,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "huoneita,",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "koska",
+                "start": 25.865,
+                "end": 26.365,
+                "confidence": 0.99902344,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "koska",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "eihän",
+                "start": 26.505001,
+                "end": 26.665,
+                "confidence": 0.9902344,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "eihän",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "tähän",
+                "start": 26.665,
+                "end": 27.145,
+                "confidence": 0.99902344,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "tähän",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "aikaan",
+                "start": 27.145,
+                "end": 27.505001,
+                "confidence": 1,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "aikaan",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "ihmiset",
+                "start": 27.505001,
+                "end": 27.865,
+                "confidence": 0.99902344,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "ihmiset",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "matkustele",
+                "start": 27.865,
+                "end": 28.365,
+                "confidence": 0.9248047,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "matkustele.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "on",
+                "start": 28.425,
+                "end": 28.585,
+                "confidence": 0.99121094,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "On",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "bräntää",
+                "start": 28.585,
+                "end": 29.064999,
+                "confidence": 0.3626709,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "bräntää",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "ja",
+                "start": 29.064999,
+                "end": 29.224998,
+                "confidence": 0.8588867,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "ja",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "kuraa",
+                "start": 29.224998,
+                "end": 29.724998,
+                "confidence": 0.99658203,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "kuraa",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "ja",
+                "start": 29.785,
+                "end": 30.185,
+                "confidence": 0.9980469,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "ja",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "kaikkea",
+                "start": 30.185,
+                "end": 30.685,
+                "confidence": 0.9970703,
+                "speaker": 0,
+                "speaker_confidence": 0.7528511,
+                "punctuated_word": "kaikkea.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "mutta",
+                "start": 36.16,
+                "end": 36.48,
+                "confidence": 0.9921875,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "Mutta",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "jos",
+                "start": 36.48,
+                "end": 36.8,
+                "confidence": 0.94384766,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "jos",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "minä",
+                "start": 36.8,
+                "end": 36.96,
+                "confidence": 1,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "minä",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "varaan",
+                "start": 36.96,
+                "end": 37.28,
+                "confidence": 0.98095703,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "varaan",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "teille",
+                "start": 37.28,
+                "end": 37.68,
+                "confidence": 0.9980469,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "teille",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "haluatteko",
+                "start": 38,
+                "end": 38.48,
+                "confidence": 0.9980469,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "Haluatteko",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "te",
+                "start": 38.48,
+                "end": 38.56,
+                "confidence": 0.9038086,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "te",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "yhden",
+                "start": 38.56,
+                "end": 38.8,
+                "confidence": 0.9980469,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "yhden",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "tai",
+                "start": 38.8,
+                "end": 38.96,
+                "confidence": 0.59765625,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "tai",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "kahden",
+                "start": 38.96,
+                "end": 39.2,
+                "confidence": 0.9921875,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "kahden",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hengen",
+                "start": 39.2,
+                "end": 39.440002,
+                "confidence": 0.76171875,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "hengen",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "huoneen",
+                "start": 39.440002,
+                "end": 39.940002,
+                "confidence": 0.9914551,
+                "speaker": 0,
+                "speaker_confidence": 0.6983994,
+                "punctuated_word": "huoneen?",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "no",
+                "start": 42.08,
+                "end": 42.32,
+                "confidence": 0.97509766,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "No",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hyvä",
+                "start": 42.32,
+                "end": 42.8,
+                "confidence": 0.8598633,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "hyvä.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "yhden",
+                "start": 42.8,
+                "end": 43.12,
+                "confidence": 0.99902344,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "Yhden",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hengen",
+                "start": 43.12,
+                "end": 43.440002,
+                "confidence": 0.99902344,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "hengen",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "huone",
+                "start": 43.440002,
+                "end": 43.84,
+                "confidence": 0.92700195,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "huone,",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "niin",
+                "start": 43.84,
+                "end": 44.34,
+                "confidence": 0.99902344,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "niin",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "varaan",
+                "start": 44.4,
+                "end": 44.8,
+                "confidence": 0.6669922,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "varaan",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "teille",
+                "start": 44.8,
+                "end": 45.12,
+                "confidence": 0.99609375,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "teille",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "sellaisen",
+                "start": 45.12,
+                "end": 45.62,
+                "confidence": 1,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "sellaisen",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "sitten",
+                "start": 45.68,
+                "end": 46.18,
+                "confidence": 0.5488281,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "sitten",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "huomiselle",
+                "start": 46.825,
+                "end": 47.325,
+                "confidence": 0.94938153,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "huomiselle.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "ja",
+                "start": 48.105,
+                "end": 48.185,
+                "confidence": 0.93847656,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "Ja",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "maksatte",
+                "start": 48.185,
+                "end": 48.585,
+                "confidence": 0.9975586,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "maksatte",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "varmaan",
+                "start": 48.585,
+                "end": 49.085,
+                "confidence": 0.9970703,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "varmaan",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "sitten",
+                "start": 49.145,
+                "end": 49.465,
+                "confidence": 0.95410156,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "sitten",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hotellilla",
+                "start": 49.465,
+                "end": 49.965,
+                "confidence": 0.95043945,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "hotellilla",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "vasta",
+                "start": 50.025,
+                "end": 50.525,
+                "confidence": 0.9951172,
+                "speaker": 0,
+                "speaker_confidence": 0.7319776,
+                "punctuated_word": "vasta.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "no",
+                "start": 56.425003,
+                "end": 56.665,
+                "confidence": 0.89501953,
+                "speaker": 0,
+                "speaker_confidence": 0.33534026,
+                "punctuated_word": "No",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hyvä",
+                "start": 56.665,
+                "end": 57.165,
+                "confidence": 0.9873047,
+                "speaker": 0,
+                "speaker_confidence": 0.33534026,
+                "punctuated_word": "hyvä.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hienoa",
+                "start": 65.38,
+                "end": 65.88,
+                "confidence": 0.9980469,
+                "speaker": 0,
+                "speaker_confidence": 0.31974655,
+                "punctuated_word": "Hienoa.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "[LOCATION_ADDRESS_2]",
+                "start": 72.495,
+                "end": 73.875,
+                "confidence": 0.8972168,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "[LOCATION_ADDRESS_2],",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hyvä",
+                "start": 74.015,
+                "end": 74.515,
+                "confidence": 0.9914551,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "hyvä.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "meillä",
+                "start": 76.095,
+                "end": 76.335,
+                "confidence": 0.9951172,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "Meillä",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "ei",
+                "start": 76.335,
+                "end": 76.575,
+                "confidence": 0.7602539,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "ei",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "[LOCATION_1]",
+                "start": 76.575,
+                "end": 77.075,
+                "confidence": 0.7807617,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "[LOCATION_1]",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "ole",
+                "start": 77.135,
+                "end": 77.375,
+                "confidence": 0.99316406,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "ole",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "koskaan",
+                "start": 77.375,
+                "end": 77.695,
+                "confidence": 0.9941406,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "koskaan",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "aikaisemmin",
+                "start": 77.695,
+                "end": 78.095,
+                "confidence": 0.9550781,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "aikaisemmin",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "ketään",
+                "start": 78.095,
+                "end": 78.415,
+                "confidence": 0.99902344,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "ketään",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "ollutkaan",
+                "start": 78.415,
+                "end": 78.895,
+                "confidence": 0.9172363,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "ollutkaan.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "tervetuloa",
+                "start": 78.895,
+                "end": 79.395,
+                "confidence": 0.8198242,
+                "speaker": 0,
+                "speaker_confidence": 0.7669927,
+                "punctuated_word": "Tervetuloa.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hyvä",
+                "start": 82.975,
+                "end": 83.475,
+                "confidence": 0.9616699,
+                "speaker": 0,
+                "speaker_confidence": 0.2979169,
+                "punctuated_word": "Hyvä.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              }
+            ],
+            "paragraphs": {
+              "transcript": "\nSpeaker 0: Lomahotelli hyvää päivää! Millehän päivälle? Eli [DATE_1]. Meiltä löytyy erittäin hyvin huoneita, koska eihän tähän aikaan ihmiset matkustele. On bräntää ja kuraa ja kaikkea.\n\nMutta jos minä varaan teille Haluatteko te yhden tai kahden hengen huoneen? No hyvä. Yhden hengen huone, niin varaan teille sellaisen sitten huomiselle. Ja maksatte varmaan sitten hotellilla vasta. No hyvä.\n\nHienoa. [LOCATION_ADDRESS_2], hyvä. Meillä ei [LOCATION_1] ole koskaan aikaisemmin ketään ollutkaan. Tervetuloa. Hyvä.",
+              "paragraphs": [
+                {
+                  "sentences": [
+                    {
+                      "text": "Lomahotelli hyvää päivää!",
+                      "start": 1.12,
+                      "end": 2.34,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Millehän päivälle?",
+                      "start": 12.559999,
+                      "end": 13.139999,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Eli [DATE_1].",
+                      "start": 17.065,
+                      "end": 17.805,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Meiltä löytyy erittäin hyvin huoneita, koska eihän tähän aikaan ihmiset matkustele.",
+                      "start": 23.945,
+                      "end": 28.365,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "On bräntää ja kuraa ja kaikkea.",
+                      "start": 28.425,
+                      "end": 30.685,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    }
+                  ],
+                  "speaker": 0,
+                  "sentiment": "neutral",
+                  "sentiment_score": 0,
+                  "num_words": 24,
+                  "start": 1.12,
+                  "end": 30.685
+                },
+                {
+                  "sentences": [
+                    {
+                      "text": "Mutta jos minä varaan teille Haluatteko te yhden tai kahden hengen huoneen?",
+                      "start": 36.16,
+                      "end": 39.940002,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "No hyvä.",
+                      "start": 42.08,
+                      "end": 42.8,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Yhden hengen huone, niin varaan teille sellaisen sitten huomiselle.",
+                      "start": 42.8,
+                      "end": 47.325,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Ja maksatte varmaan sitten hotellilla vasta.",
+                      "start": 48.105,
+                      "end": 50.525,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "No hyvä.",
+                      "start": 56.425003,
+                      "end": 57.165,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    }
+                  ],
+                  "speaker": 0,
+                  "sentiment": "neutral",
+                  "sentiment_score": 0,
+                  "num_words": 31,
+                  "start": 36.16,
+                  "end": 57.165
+                },
+                {
+                  "sentences": [
+                    {
+                      "text": "Hienoa.",
+                      "start": 65.38,
+                      "end": 65.88,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "[LOCATION_ADDRESS_2], hyvä.",
+                      "start": 72.495,
+                      "end": 74.515,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Meillä ei [LOCATION_1] ole koskaan aikaisemmin ketään ollutkaan.",
+                      "start": 76.095,
+                      "end": 78.895,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Tervetuloa.",
+                      "start": 78.895,
+                      "end": 79.395,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Hyvä.",
+                      "start": 82.975,
+                      "end": 83.475,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    }
+                  ],
+                  "speaker": 0,
+                  "sentiment": "neutral",
+                  "sentiment_score": 0,
+                  "num_words": 13,
+                  "start": 65.38,
+                  "end": 83.475
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "transcript": "Heippa hei! Tässä on Jack Daynels. Haluaisin tehdä hotellihuonevarauksen. Huomiselle. Ja tulikin kello [TIME_1]. Sehän vastaa. Yhden hengen huone Voisin antaa tässä vaikka suoraan jo luottokortin numeron. Se on [CREDIT_CARD_1]. Osoite oli [LOCATION_ADDRESS_1]. Kiitos.",
+            "confidence": 0.9069824,
+            "words": [
+              {
+                "word": "heippa",
+                "start": 4.72,
+                "end": 5.04,
+                "confidence": 0.66552734,
+                "speaker": 0,
+                "speaker_confidence": 0.58340466,
+                "punctuated_word": "Heippa",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hei",
+                "start": 5.04,
+                "end": 5.52,
+                "confidence": 0.62841797,
+                "speaker": 0,
+                "speaker_confidence": 0.58340466,
+                "punctuated_word": "hei!",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "tässä",
+                "start": 5.52,
+                "end": 5.8399997,
+                "confidence": 0.9770508,
+                "speaker": 0,
+                "speaker_confidence": 0.58340466,
+                "punctuated_word": "Tässä",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "on",
+                "start": 5.8399997,
+                "end": 6.3399997,
+                "confidence": 0.97509766,
+                "speaker": 0,
+                "speaker_confidence": 0.58340466,
+                "punctuated_word": "on",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "jack",
+                "start": 6.56,
+                "end": 6.96,
+                "confidence": 0.9069824,
+                "speaker": 0,
+                "speaker_confidence": 0.58340466,
+                "punctuated_word": "Jack",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "daynels",
+                "start": 6.96,
+                "end": 7.46,
+                "confidence": 0.6988281,
+                "speaker": 0,
+                "speaker_confidence": 0.58340466,
+                "punctuated_word": "Daynels.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "haluaisin",
+                "start": 7.8399997,
+                "end": 8.24,
+                "confidence": 0.9536133,
+                "speaker": 0,
+                "speaker_confidence": 0.58340466,
+                "punctuated_word": "Haluaisin",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "tehdä",
+                "start": 8.24,
+                "end": 8.74,
+                "confidence": 0.9980469,
+                "speaker": 0,
+                "speaker_confidence": 0.58340466,
+                "punctuated_word": "tehdä",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hotellihuonevarauksen",
+                "start": 8.8,
+                "end": 9.3,
+                "confidence": 0.8707031,
+                "speaker": 0,
+                "speaker_confidence": 0.58340466,
+                "punctuated_word": "hotellihuonevarauksen.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "huomiselle",
+                "start": 14.745,
+                "end": 15.245,
+                "confidence": 0.8886719,
+                "speaker": 0,
+                "speaker_confidence": 0.046878934,
+                "punctuated_word": "Huomiselle.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "ja",
+                "start": 20.345,
+                "end": 20.425,
+                "confidence": 0.2998047,
+                "speaker": 0,
+                "speaker_confidence": 0.47335625,
+                "punctuated_word": "Ja",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "tulikin",
+                "start": 20.425,
+                "end": 20.744999,
+                "confidence": 0.6591797,
+                "speaker": 0,
+                "speaker_confidence": 0.47335625,
+                "punctuated_word": "tulikin",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "kello",
+                "start": 20.744999,
+                "end": 21.244999,
+                "confidence": 0.9301758,
+                "speaker": 0,
+                "speaker_confidence": 0.47335625,
+                "punctuated_word": "kello",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "[TIME_1]",
+                "start": 21.785,
+                "end": 22.525,
+                "confidence": 0.9265137,
+                "speaker": 0,
+                "speaker_confidence": 0.47335625,
+                "punctuated_word": "[TIME_1].",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "sehän",
+                "start": 33.58,
+                "end": 33.739998,
+                "confidence": 0.8598633,
+                "speaker": 0,
+                "speaker_confidence": 0.096755266,
+                "punctuated_word": "Sehän",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "vastaa",
+                "start": 33.739998,
+                "end": 34.239998,
+                "confidence": 0.63623047,
+                "speaker": 0,
+                "speaker_confidence": 0.096755266,
+                "punctuated_word": "vastaa.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "yhden",
+                "start": 40.745,
+                "end": 41.145,
+                "confidence": 0.9267578,
+                "speaker": 0,
+                "speaker_confidence": 0.17037779,
+                "punctuated_word": "Yhden",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "hengen",
+                "start": 41.145,
+                "end": 41.385,
+                "confidence": 0.99316406,
+                "speaker": 0,
+                "speaker_confidence": 0.17037779,
+                "punctuated_word": "hengen",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "huone",
+                "start": 41.385,
+                "end": 41.785,
+                "confidence": 0.96533203,
+                "speaker": 0,
+                "speaker_confidence": 0.17037779,
+                "punctuated_word": "huone",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "voisin",
+                "start": 52.359997,
+                "end": 52.519997,
+                "confidence": 0.94921875,
+                "speaker": 0,
+                "speaker_confidence": 0.5547569,
+                "punctuated_word": "Voisin",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "antaa",
+                "start": 52.519997,
+                "end": 52.839996,
+                "confidence": 0.9951172,
+                "speaker": 0,
+                "speaker_confidence": 0.5547569,
+                "punctuated_word": "antaa",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "tässä",
+                "start": 52.839996,
+                "end": 53.32,
+                "confidence": 0.8203125,
+                "speaker": 0,
+                "speaker_confidence": 0.5547569,
+                "punctuated_word": "tässä",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "vaikka",
+                "start": 53.32,
+                "end": 53.559998,
+                "confidence": 0.8183594,
+                "speaker": 0,
+                "speaker_confidence": 0.5547569,
+                "punctuated_word": "vaikka",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "suoraan",
+                "start": 53.559998,
+                "end": 54.059998,
+                "confidence": 0.4885254,
+                "speaker": 0,
+                "speaker_confidence": 0.5547569,
+                "punctuated_word": "suoraan",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "jo",
+                "start": 54.12,
+                "end": 54.44,
+                "confidence": 0.6557617,
+                "speaker": 0,
+                "speaker_confidence": 0.5547569,
+                "punctuated_word": "jo",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "luottokortin",
+                "start": 54.44,
+                "end": 54.94,
+                "confidence": 0.9980469,
+                "speaker": 0,
+                "speaker_confidence": 0.5547569,
+                "punctuated_word": "luottokortin",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "numeron",
+                "start": 55.239998,
+                "end": 55.739998,
+                "confidence": 0.94506836,
+                "speaker": 0,
+                "speaker_confidence": 0.5547569,
+                "punctuated_word": "numeron.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "se",
+                "start": 59,
+                "end": 59.32,
+                "confidence": 0.9604492,
+                "speaker": 0,
+                "speaker_confidence": 0.47702956,
+                "punctuated_word": "Se",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "on",
+                "start": 59.32,
+                "end": 59.64,
+                "confidence": 0.98095703,
+                "speaker": 0,
+                "speaker_confidence": 0.47702956,
+                "punctuated_word": "on",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "[CREDIT_CARD_1]",
+                "start": 59.64,
+                "end": 62.14,
+                "confidence": 0.92333984,
+                "speaker": 0,
+                "speaker_confidence": 0.47702956,
+                "punctuated_word": "[CREDIT_CARD_1].",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "osoite",
+                "start": 66.955,
+                "end": 67.455,
+                "confidence": 0.84765625,
+                "speaker": 0,
+                "speaker_confidence": 0.45085853,
+                "punctuated_word": "Osoite",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "oli",
+                "start": 67.595,
+                "end": 68.095,
+                "confidence": 0.9741211,
+                "speaker": 0,
+                "speaker_confidence": 0.45085853,
+                "punctuated_word": "oli",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "[LOCATION_ADDRESS_1]",
+                "start": 70.955,
+                "end": 72.255,
+                "confidence": 0.7606201,
+                "speaker": 0,
+                "speaker_confidence": 0.25813562,
+                "punctuated_word": "[LOCATION_ADDRESS_1].",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              },
+              {
+                "word": "kiitos",
+                "start": 82.81381,
+                "end": 83.31381,
+                "confidence": 0.68359375,
+                "speaker": 0,
+                "speaker_confidence": 0,
+                "punctuated_word": "Kiitos.",
+                "sentiment": "neutral",
+                "sentiment_score": 0
+              }
+            ],
+            "paragraphs": {
+              "transcript": "\nSpeaker 0: Heippa hei! Tässä on Jack Daynels. Haluaisin tehdä hotellihuonevarauksen. Huomiselle. Ja tulikin kello [TIME_1].\n\nSehän vastaa. Yhden hengen huone Voisin antaa tässä vaikka suoraan jo luottokortin numeron. Se on [CREDIT_CARD_1]. Osoite oli [LOCATION_ADDRESS_1]. Kiitos.",
+              "paragraphs": [
+                {
+                  "sentences": [
+                    {
+                      "text": "Heippa hei!",
+                      "start": 4.72,
+                      "end": 5.52,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Tässä on Jack Daynels.",
+                      "start": 5.52,
+                      "end": 7.46,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Haluaisin tehdä hotellihuonevarauksen.",
+                      "start": 7.8399997,
+                      "end": 9.3,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Huomiselle.",
+                      "start": 14.745,
+                      "end": 15.245,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Ja tulikin kello [TIME_1].",
+                      "start": 20.345,
+                      "end": 22.525,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    }
+                  ],
+                  "speaker": 0,
+                  "sentiment": "neutral",
+                  "sentiment_score": 0,
+                  "num_words": 14,
+                  "start": 4.72,
+                  "end": 22.525
+                },
+                {
+                  "sentences": [
+                    {
+                      "text": "Sehän vastaa.",
+                      "start": 33.58,
+                      "end": 34.239998,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Yhden hengen huone Voisin antaa tässä vaikka suoraan jo luottokortin numeron.",
+                      "start": 40.745,
+                      "end": 55.739998,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Se on [CREDIT_CARD_1].",
+                      "start": 59,
+                      "end": 62.14,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Osoite oli [LOCATION_ADDRESS_1].",
+                      "start": 66.955,
+                      "end": 72.255,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    },
+                    {
+                      "text": "Kiitos.",
+                      "start": 82.81381,
+                      "end": 83.31381,
+                      "sentiment": "neutral",
+                      "sentiment_score": 0
+                    }
+                  ],
+                  "speaker": 0,
+                  "sentiment": "neutral",
+                  "sentiment_score": 0,
+                  "num_words": 20,
+                  "start": 33.58,
+                  "end": 83.31381
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "paragraphs": {
+      "transcript": "\nChannel 0: Speaker 0: Lomahotelli hyvää päivää!\n\nChannel 1: Heippa hei! Tässä on Jack Daynels. Haluaisin tehdä hotellihuonevarauksen.\n\nChannel 0: Millehän päivälle?\n\nChannel 1: Huomiselle.\n\nChannel 0: Eli [DATE_1].\n\nChannel 1: Ja tulikin kello [TIME_1].\n\nChannel 0: Meiltä löytyy erittäin hyvin huoneita, koska eihän tähän aikaan ihmiset matkustele. On bräntää ja kuraa ja kaikkea.\n\nChannel 1: Sehän vastaa.\n\nChannel 0: Mutta jos minä varaan teille Haluatteko te yhden tai kahden hengen huoneen?\n\nChannel 1: Yhden hengen huone\n\nChannel 0: No hyvä. Yhden hengen huone, niin varaan teille sellaisen sitten huomiselle. Ja maksatte varmaan sitten hotellilla vasta.\n\nChannel 1: Voisin antaa tässä vaikka suoraan jo luottokortin numeron.\n\nChannel 0: No hyvä.\n\nChannel 1: Se on [CREDIT_CARD_1].\n\nChannel 0: Hienoa.\n\nChannel 1: Osoite oli [LOCATION_ADDRESS_1].\n\nChannel 0: [LOCATION_ADDRESS_2], hyvä. Meillä ei [LOCATION_1] ole koskaan aikaisemmin ketään ollutkaan. Tervetuloa.\n\nChannel 1: Kiitos.\n\nChannel 0: Hyvä.",
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Lomahotelli hyvää päivää!",
+              "start": 1.12,
+              "end": 2.34,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 3,
+          "start": 1.12,
+          "end": 2.34
+        },
+        {
+          "sentences": [
+            {
+              "text": "Heippa hei!",
+              "start": 4.72,
+              "end": 5.52,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            },
+            {
+              "text": "Tässä on Jack Daynels.",
+              "start": 5.52,
+              "end": 7.46,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            },
+            {
+              "text": "Haluaisin tehdä hotellihuonevarauksen.",
+              "start": 7.8399997,
+              "end": 9.3,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 1,
+          "num_words": 9,
+          "start": 4.72,
+          "end": 9.3
+        },
+        {
+          "sentences": [
+            {
+              "text": "Millehän päivälle?",
+              "start": 12.559999,
+              "end": 13.139999,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 2,
+          "start": 12.559999,
+          "end": 13.139999
+        },
+        {
+          "sentences": [
+            {
+              "text": "Huomiselle.",
+              "start": 14.745,
+              "end": 15.245,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 1,
+          "num_words": 1,
+          "start": 14.745,
+          "end": 15.245
+        },
+        {
+          "sentences": [
+            {
+              "text": "Eli [DATE_1].",
+              "start": 17.065,
+              "end": 17.805,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 2,
+          "start": 17.065,
+          "end": 17.805
+        },
+        {
+          "sentences": [
+            {
+              "text": "Ja tulikin kello [TIME_1].",
+              "start": 20.345,
+              "end": 22.525,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 1,
+          "num_words": 4,
+          "start": 20.345,
+          "end": 22.525
+        },
+        {
+          "sentences": [
+            {
+              "text": "Meiltä löytyy erittäin hyvin huoneita, koska eihän tähän aikaan ihmiset matkustele.",
+              "start": 23.945,
+              "end": 28.365,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            },
+            {
+              "text": "On bräntää ja kuraa ja kaikkea.",
+              "start": 28.425,
+              "end": 30.685,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 17,
+          "start": 23.945,
+          "end": 30.685
+        },
+        {
+          "sentences": [
+            {
+              "text": "Sehän vastaa.",
+              "start": 33.58,
+              "end": 34.239998,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 1,
+          "num_words": 2,
+          "start": 33.58,
+          "end": 34.239998
+        },
+        {
+          "sentences": [
+            {
+              "text": "Mutta jos minä varaan teille Haluatteko te yhden tai kahden hengen huoneen?",
+              "start": 36.16,
+              "end": 39.940002,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 12,
+          "start": 36.16,
+          "end": 39.940002
+        },
+        {
+          "sentences": [
+            {
+              "text": "Yhden hengen huone",
+              "start": 40.745,
+              "end": 41.785,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 1,
+          "num_words": 3,
+          "start": 40.745,
+          "end": 41.785
+        },
+        {
+          "sentences": [
+            {
+              "text": "No hyvä.",
+              "start": 42.08,
+              "end": 42.8,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            },
+            {
+              "text": "Yhden hengen huone, niin varaan teille sellaisen sitten huomiselle.",
+              "start": 42.8,
+              "end": 47.325,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            },
+            {
+              "text": "Ja maksatte varmaan sitten hotellilla vasta.",
+              "start": 48.105,
+              "end": 50.525,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 17,
+          "start": 42.08,
+          "end": 50.525
+        },
+        {
+          "sentences": [
+            {
+              "text": "Voisin antaa tässä vaikka suoraan jo luottokortin numeron.",
+              "start": 52.359997,
+              "end": 55.739998,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 1,
+          "num_words": 8,
+          "start": 52.359997,
+          "end": 55.739998
+        },
+        {
+          "sentences": [
+            {
+              "text": "No hyvä.",
+              "start": 56.425003,
+              "end": 57.165,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 2,
+          "start": 56.425003,
+          "end": 57.165
+        },
+        {
+          "sentences": [
+            {
+              "text": "Se on [CREDIT_CARD_1].",
+              "start": 59,
+              "end": 62.14,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 1,
+          "num_words": 3,
+          "start": 59,
+          "end": 62.14
+        },
+        {
+          "sentences": [
+            {
+              "text": "Hienoa.",
+              "start": 65.38,
+              "end": 65.88,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 1,
+          "start": 65.38,
+          "end": 65.88
+        },
+        {
+          "sentences": [
+            {
+              "text": "Osoite oli [LOCATION_ADDRESS_1].",
+              "start": 66.955,
+              "end": 72.255,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 1,
+          "num_words": 3,
+          "start": 66.955,
+          "end": 72.255
+        },
+        {
+          "sentences": [
+            {
+              "text": "[LOCATION_ADDRESS_2], hyvä.",
+              "start": 72.495,
+              "end": 74.515,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            },
+            {
+              "text": "Meillä ei [LOCATION_1] ole koskaan aikaisemmin ketään ollutkaan.",
+              "start": 76.095,
+              "end": 78.895,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            },
+            {
+              "text": "Tervetuloa.",
+              "start": 78.895,
+              "end": 79.395,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 11,
+          "start": 72.495,
+          "end": 79.395
+        },
+        {
+          "sentences": [
+            {
+              "text": "Kiitos.",
+              "start": 82.81381,
+              "end": 83.31381,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 1,
+          "num_words": 1,
+          "start": 82.81381,
+          "end": 83.31381
+        },
+        {
+          "sentences": [
+            {
+              "text": "Hyvä.",
+              "start": 82.975,
+              "end": 83.475,
+              "sentiment": "neutral",
+              "sentiment_score": 0
+            }
+          ],
+          "speaker": 0,
+          "sentiment": "neutral",
+          "sentiment_score": 0,
+          "channel": 0,
+          "num_words": 1,
+          "start": 82.975,
+          "end": 83.475
+        }
+      ]
+    }
+  }
+}
