@@ -1,1 +1,143 @@
+import { createClient } from '@deepgram/sdk';
+import fs from 'fs/promises';
+import path from 'path';
+
+const parseTranscripts = (inputJson) => {
+  const parsedTranscripts = { transcripts: [] };
+  // First handle Diarize param
+  if (inputJson.metadata && inputJson.metadata.channels === 2) {
+    // Handle JSON structure for channel = 2
+    const paragraphs = inputJson.results.paragraphs.paragraphs || [];
+    paragraphs.forEach((paragraph) => {
+      const sentences = paragraph.sentences || [];
+      const channel = paragraph.hasOwnProperty('channel') ? paragraph.channel : null;
+      const speaker = paragraph.hasOwnProperty('speaker') ? paragraph.speaker : null;
+
+      sentences.forEach((sentence) => {
+        parsedTranscripts.transcripts.push({
+          start: sentence.start || 0,
+          end: sentence.end || 0,
+          channel: channel,
+          speaker: speaker, // Speaker is not provided in this context
+          transcript: sentence.text || "",
+          sentiment: sentence.sentiment_score || 0.0, // Placeholder for sentiment analysis
+        });
+      });
+    });
+  }
+  else if (inputJson.metadata && inputJson.metadata.channels === 1) {
+    // Handle JSON structure for channel = 1
+    const channels = inputJson.results.channels || [];
+    channels.forEach((channelData) => {
+      const alternatives = channelData.alternatives || [];
+      alternatives.forEach((alternative) => {
+        if (alternative.paragraphs && alternative.paragraphs.paragraphs) {
+          const paragraphs = alternative.paragraphs.paragraphs || [];
+          paragraphs.forEach((paragraph) => {
+            const sentences = paragraph.sentences || [];
+            const speaker = paragraph.hasOwnProperty('speaker') ? paragraph.speaker : null;
+ 
+            sentences.forEach((sentence) => {
+              parsedTranscripts.transcripts.push({
+                start: sentence.start || 0,
+                end: sentence.end || 0,
+                channel: null, // Channel might not exist in this format
+                speaker: sentence.speaker || speaker, // Prioritize sentence-level speaker
+                transcript: sentence.text || "",
+                sentiment: sentence.sentiment_score || 0.0, // Placeholder for sentiment analysis
+               });
+             });
+           });
+         } 
+       });
+     });
+     // Handle multichannel param.
+   } 
+  return parsedTranscripts;
+};
+
+const listen = async () => {
+  const deepgramApiKey = '21e3e9d8d3954dbc263adeff0bc5f3c969932ebb';
+  const url = 'https://vikassinch.github.io/Recordings/English Conference1.opus';
+  const deepgram = createClient(deepgramApiKey);
+
+  const transcriptsFolder = path.join(path.resolve(), 'Deepgram/Transcript');
+  try {
+    await fs.mkdir(transcriptsFolder, { recursive: true });
+  } catch (err) {
+    console.error('Error creating Transcripts folder:', err);
+    return;
+  }
+
+  let transcriptFileName;
+
+  /* Try with parameters like
+
+      multichannel: true,
+      diarize: true,
+      model: 'nova-2',
+      language: 'fi',
+      smart_format: true,
+      redact: ['pci', 'ssn', 'numbers'], --> if not used, then this data is in the transcript, they can be mixed and matched.
+      utterances: true,
+      detect_language : true,
+      sentiment: true
+      
+  */
+    const removeWordsProperty = (obj) => {
+        if (Array.isArray(obj)) {
+          obj.forEach((item) => removeWordsProperty(item));
+        } else if (typeof obj === 'object' && obj !== null) {
+          if ('words' in obj) {
+            delete obj.words;
+          }
+          Object.values(obj).forEach((value) => removeWordsProperty(value));
+        }
+      }; 
+  try {
+    const { result, error } = await deepgram.listen.prerecorded.transcribeUrl(
+      { url },
+      {
+        model: 'nova-2',
+        language: 'en',
+        smart_format: true,
+        sentiment: true,
+        diarize: true,
+        multichannel: true,
+        redact: ['pci', 'ssn', 'numbers'],
+      }
+    );
+
+    if (error) {
+      console.error('Error during transcription:', error);
+      return;
+    }
+
+  // Remove words array from result recursively
+  //  removeWordsProperty(result);
+    
+    transcriptFileName = path.join(transcriptsFolder, 'transcript.json');
+    const transcriptText = JSON.stringify(result, null, 2);
+
+    await fs.writeFile(transcriptFileName, transcriptText, 'utf8');
+    console.log(`Transcript saved to: ${transcriptFileName}`);
+  } catch (err) {
+    console.error('Error during transcription process:', err);
+    return;
+  }
+
+  // Parse the saved transcript
+  try {
+    const rawTranscript = await fs.readFile(transcriptFileName, 'utf8');
+    const parsedTranscripts = parseTranscripts(JSON.parse(rawTranscript));
+
+    const parsedFileName = path.join(transcriptsFolder, 'parsed_transcripts.json');
+    await fs.writeFile(parsedFileName, JSON.stringify(parsedTranscripts, null, 2), 'utf8');
+    console.log(`Parsed transcript saved to: ${parsedFileName}`);
+  } catch (err) {
+    console.error('Error during parsing process:', err);
+  }
+};
+
+listen();
 
