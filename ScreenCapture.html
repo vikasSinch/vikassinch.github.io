@@ -6,60 +6,40 @@
     <title>Video Screenshot Capture</title>
 </head>
 <body>
-    <h2>Random Video Player & Screenshot Capture</h2>
+    <h2>Video Player & Screenshot Capture</h2>
 
     <!-- Video Container -->
     <div id="video-container" style="width: 640px; height: 360px; border: 2px solid black;">
-        <video id="video-player" width="640" height="360" controls></video>
+        <video id="video-player" width="640" height="360" controls>
+            <source src="Recordings/mov.bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
     <!-- Buttons -->
-    <button onclick="playRandomVideo()">Play Random Video</button>
     <button onclick="captureScreenshot()">Capture Screenshot</button>
 
-    <!-- Download Link -->
-    <a id="download-link" style="display: none;">Download Screenshot</a>
-
     <script>
-        // List of random video URLs
-        const videoList = [
-            "https://www.w3schools.com/html/mov_bbb.mp4",
-            "https://www.w3schools.com/html/movie.mp4",
-            "https://www.w3schools.com/html/mov_bbb.ogg"
-        ];
-
-        // Get video element
-        const videoElement = document.getElementById("video-player");
-
-        // Function to play a random video
-        function playRandomVideo() {
-            const randomIndex = Math.floor(Math.random() * videoList.length);
-            videoElement.src = videoList[randomIndex];
-            videoElement.play();
-        }
-
-        // Function to capture a screenshot from the video
         function captureScreenshot() {
+            let videoElement = document.getElementById("video-player");
+
             if (videoElement.readyState >= 2) { // Ensure video is loaded
-                // Create a canvas
                 const canvas = document.createElement("canvas");
                 canvas.width = videoElement.videoWidth;
                 canvas.height = videoElement.videoHeight;
                 const ctx = canvas.getContext("2d");
 
-                // Draw video frame onto canvas
+                // Draw the video frame onto the canvas
                 ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
 
-                // Convert canvas to an image blob
+                // Convert to Blob and download
                 canvas.toBlob(blob => {
                     let file = new File([blob], "video_screenshot.png", { type: "image/png" });
 
-                    // Create a download link
-                    let link = document.getElementById("download-link");
+                    let link = document.createElement("a");
                     link.href = URL.createObjectURL(blob);
                     link.download = "video_screenshot.png";
-                    link.style.display = "block";
-                    link.innerText = "Download Screenshot";
+                    link.click();
                 }, "image/png");
             } else {
                 alert("Please play the video first before taking a screenshot.");
