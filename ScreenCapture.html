@@ -19,7 +19,13 @@
     <!-- Buttons -->
     <button onclick="captureScreenshot()">Capture Screenshot</button>
 
+    <!-- List of Captured Screenshots -->
+    <h3>Captured Screenshots:</h3>
+    <ul id="screenshot-list"></ul>
+
     <script>
+        let screenshotCount = 0;
+
         function captureScreenshot() {
             let videoElement = document.getElementById("video-player");
 
@@ -34,11 +40,22 @@
 
                 // Convert to Blob and download
                 canvas.toBlob(blob => {
-                    let file = new File([blob], "video_screenshot.png", { type: "image/png" });
+                    screenshotCount++;
+                    let fileName = `video_screenshot_${screenshotCount}.png`;
 
+                    // Create a downloadable link
                     let link = document.createElement("a");
                     link.href = URL.createObjectURL(blob);
-                    link.download = "video_screenshot.png";
+                    link.download = fileName;
+                    link.innerText = fileName;
+                    link.style.display = "block";
+
+                    // Append to screenshot list
+                    let listItem = document.createElement("li");
+                    listItem.appendChild(link);
+                    document.getElementById("screenshot-list").appendChild(listItem);
+
+                    // Auto-click to download
                     link.click();
                 }, "image/png");
             } else {
